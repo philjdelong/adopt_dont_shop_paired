@@ -209,6 +209,7 @@ Then I see each Pet in the system including the Pet's:
 - name
 - approximate age
 - sex
+- name of the shelter where the pet is currently located
 ```
 
 ```
@@ -255,13 +256,12 @@ When I fill in the form with the pet's:
 - image
 - name
 - description
-- type (cat or dog)
 - approximate age
-- sex
+- sex ('female' or 'male')
 Then a `POST` request is sent to '/shelters/:shelter_id/pets',
 a new pet is created for that shelter,
 that pet has a status of 'adoptable',
-and I am redirected to the Shelter Pets Index page where I see the new pet listed
+and I am redirected to the Shelter Pets Index page where I can see the new pet listed
 ```
 
 ```
@@ -277,7 +277,6 @@ I am taken to '/pets/:id/edit' where I see a form to edit the pet's data includi
 - image
 - name
 - description
-- type (cat or dog)
 - approximate age
 - sex
 When I click the button to submit the form
@@ -308,7 +307,54 @@ Users should be able to use the site easily. This means making sure there are li
 ```
 [ ] done
 
-User Story 13, Shelter Links
+User Story 13, Shelter Update From Shelter Index Page
+
+As a visitor
+When I visit the shelter index page
+Next to every shelter, I see a link to edit that shelter's info
+When I click the link
+I should be taken to that shelters edit page where I can update its information just like in User Story 5
+```
+
+```
+[ ] done
+
+User Story 14, Shelter Delete From Shelter Index Page
+
+As a visitor
+When I visit the shelter index page
+Next to every shelter, I see a link to delete that shelter
+When I click the link
+I am returned to the Shelter Index Page where I no longer see that shelter
+```
+
+```
+[ ] done
+
+User Story 15, Pet Update From Pets Index Page
+
+As a visitor
+When I visit the pets index page or a shelter pets index page
+Next to every pet, I see a link to edit that pet's info
+When I click the link
+I should be taken to that pets edit page where I can update its information just like in User Story 11
+```
+```
+[ ] done
+
+User Story 16, Pet Delete From Pets Index Page
+
+As a visitor
+When I visit the pets index page or a shelter pets index page
+Next to every pet, I see a link to delete that pet
+When I click the link
+I should be taken to the pets index page where I no longer see that pet
+```
+
+```
+[ ] done
+
+User Story 17, Shelter Links
 
 As a visitor
 When I click on the name a shelter anywhere on the site
@@ -318,7 +364,7 @@ Then that link takes me to that Shelter's show page
 ```
 [ ] done
 
-User Story 14, Pet Links
+User Story 18, Pet Links
 
 As a visitor
 When I click on the name a pet anywhere on the site
@@ -328,7 +374,7 @@ Then that link takes me to that Pet's show page
 ```
 [ ] done
 
-User Story 15, Pet Index Link
+User Story 19, Pet Index Link
 
 As a visitor
 When I visit any page on the site
@@ -338,7 +384,7 @@ Then I see a link at the top of the page that takes me to the Pet Index
 ```
 [ ] done
 
-User Story 16, Shelter Index Link
+User Story 20, Shelter Index Link
 
 As a visitor
 When I visit any page on the site
@@ -348,7 +394,7 @@ Then I see a link at the top of the page that takes me to the Shelter Index
 ```
 [ ] done
 
-User Story 17, Shelter Pet Index Link
+User Story 21, Shelter Pet Index Link
 
 As a visitor
 When I visit a shelter show page ('/shelters/:id')
@@ -358,7 +404,7 @@ Then I see a link to take me to that shelter's pets page ('/shelters/:id/pets')
 ```
 [ ] done
 
-User Story 18, Styling
+User Story 22, Styling
 
 As a visitor
 When I visit any page on the site
@@ -372,61 +418,44 @@ Then I should see a reasonably well styled page
 ```
 [ ] done
 
-User Story 19, Dog Index Page
+User Story 23, Shelter Pet Count
 
 As a visitor
-When I visit any page on the site
-Then I see a link at the top of the page called "All Dogs"
-When I click on that link
-I'm taken to '/pets?type=dog'
-And I can see all of the dogs that are in my shelters
+When I visit a shelter pets index page
+I see a count of the number of pets at this shelter
+
 ```
 
 ```
 [ ] done
 
-User Story 20, Cat Index Page
+User Story 24, Adoptable Pets Display First
 
 As a visitor
-When I visit any page on the site
-Then I see a link at the top of the page called "All Cats"
-When I click on that link
-I'm taken to '/pets?type=cat'
-And I can see all of the cats that are in my shelters
+When I visit a shelter pets index or a pets index page
+I see adoptable pets listed before pets whose adoption status is pending
+
 ```
 
 ```
 [ ] done
 
-User Story 21, Dog Filter by Adoptable Status
+User Story 25, Pet Filter by Adoptable Status
 
 As a visitor
-When I visit '/pets?type=dog'
-I see a link to show only adoptable dogs
-I also see a link to show only adoptable dogs
+When I visit the pets index page or a shelter pets index page
+I see a link to show only adoptable pets
+I also see a link to show only adoption-pending pets
 When I click the link
-Then my path is something like '/pets?type=dog&adoptable=true' or '/pets?type=dog&adoptable=false'
-And I see only the dogs that are adoptable/pending adoption.
+Then my path is something like '/pets?adoptable=true' or '/pets?adoptable=false' (respectively)
+And I see only the pets that are adoptable/pending adoption (respectively).
 ```
 
-```
-[ ] done
-
-User Story 22, Cat Filter by Adoptable Status
-
-As a visitor
-When I visit '/pets?type=cat'
-I see a link to show only adoptable cats
-I also see a link to show only adoption pending cats
-When I click the link(s)
-Then my path is something like '/pets?type=cat&adoptable=true' or '/pets?type=cat&adoptable=false'
-And I see only the cats that are adoptable/pending adoption.
-```
 
 ```
 [ ] done
 
-User Story 23, Change Pet's Adoptable/Pending Adoption Status
+User Story 26, Change Pet's Adoptable/Pending Adoption Status
 
 As a visitor
 When I visit a Pet Show page
@@ -436,4 +465,28 @@ Adoption Pending pets should have the link "Change to Adoptable"
 When I click the link
 Then a 'PATCH' request is sent to '/pets/:id/adoptable' or 'pets/:id/pending' (depending on the link)
 and I am redirected to the Pet Show page where I see the pet's status has been changed
+```
+
+```
+[ ] done
+
+User Story 27, Sort Shelters by number of adoptable pets
+
+As a visitor
+When I visit the Shelter Index Page
+Then I see a link to sort shelters by the number of adoptable pets they have
+When I click on the link
+I'm taken back to the Shelters Index Page where I see all of the shelters in order of their count of adoptable pets (highest to lowest)
+```
+
+```
+[ ] done
+
+User Story 28, Sort Shelters in Alphabetical Order
+
+As a visitor
+When I visit the Shelter Index Page
+Then I see a link to sort shelters in alphabetical order
+When I click on the link
+I'm taken back to the Shelters Index Page where I see all of the shelters in alphabetical order
 ```
