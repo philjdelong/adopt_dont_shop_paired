@@ -43,8 +43,6 @@ GEM
     arel (8.0.0)
     bindex (0.8.1)
     builder (3.2.3)
-    bundle (0.0.1)
-      bundler
     byebug (11.0.1)
     capybara (3.29.0)
       addressable
@@ -196,7 +194,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundle
   byebug
   capybara
   coffee-rails (~> 4.2)
@@ -207,7 +204,6 @@ DEPENDENCIES
   pry
   puma (~> 3.7)
   rails (~> 5.1.7)
-  rake
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
