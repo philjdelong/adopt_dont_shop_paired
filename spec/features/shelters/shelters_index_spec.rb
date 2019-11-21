@@ -1,20 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe "As the user" do
-  describe "when i visit the shelter index page", type: :feature do
+  describe "when i visit shelter index", type: :feature do
     before :each do
-    @shelter_1 = Shelter.create(  name:     'The Best Shelter',
-                                  address:  '1234 Address St.',
-                                  city:     'Denver',
-                                  state:    'CO',
-                                  zip:      '80202'
-    )
-    @shelter_2 = Shelter.create(  name:     'The Other Shelter',
-                                  address:  '4321 Address St.',
-                                  city:     'UnDenver',
-                                  state:    'NotCO',
-                                  zip:      '20208'
-    )
+      @shelter_1 = Shelter.create(  name:     'The Best Shelter',
+                                    address:  '1234 Address St.',
+                                    city:     'Denver',
+                                    state:    'CO',
+                                    zip:      '80202'
+      )
+      @shelter_2 = Shelter.create(  name:     'The Other Shelter',
+                                    address:  '4321 Address St.',
+                                    city:     'UnDenver',
+                                    state:    'NotCO',
+                                    zip:      '20208'
+      )
 
       visit "/shelters"
     end
@@ -28,10 +28,3 @@ RSpec.describe "As the user" do
     end
   end
 end
-
-
-# adding more attributes
-# expect(page).to have_content(@shelter_1.address)
-# expect(page).to have_content(@shelter_1.city)
-# expect(page).to have_content(@shelter_1.state)
-# expect(page).to have_content(@shelter_1.zip)
