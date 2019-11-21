@@ -7,8 +7,11 @@ describe "shelter index page", type: :feature do
     visit "/shelters"
   end
 
-  it "can see all shelters" do
+  it "can see shelter 1" do
     expect(page).to have_content(@shelter_1.name)
+  end
+
+  it "can see shelter 2" do
     expect(page).to have_content(@shelter_2.name)
   end
 end
