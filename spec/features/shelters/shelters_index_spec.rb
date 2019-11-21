@@ -2,8 +2,19 @@ require 'rails_helper'
 
 describe "shelter index page", type: :feature do
     before :each do
-    @shelter_1 = Shelter.create(name: 'Shelter 1')
-    @shelter_2 = Shelter.create(name: 'Shelter 2')
+    @shelter_1 = Shelter.create(  name:     'The Best Shelter'
+                                  # address:  '1234 Address St.',
+                                  # city:     'Denver',
+                                  # state:    'CO',
+                                  # zip:      '80202'
+    )
+    @shelter_2 = Shelter.create(  name:     'The Other Shelter'
+                                  # address:  '4321 Address St.',
+                                  # city:     'UnDenver',
+                                  # state:    'NotCO',
+                                  # zip:      '20208'
+    )
+
     visit "/shelters"
   end
 
