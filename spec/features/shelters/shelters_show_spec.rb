@@ -19,6 +19,7 @@ RSpec.describe "As the user" do
 
     it "i can see the shelter 1 info" do
       visit "/shelters/#{@shelter_1.id}"
+
       expect(page).to have_content(@shelter_1.name)
       expect(page).to have_content(@shelter_1.address)
       expect(page).to have_content(@shelter_1.city)
@@ -28,6 +29,7 @@ RSpec.describe "As the user" do
 
     it "i can see the shelter 2 info" do
       visit "/shelters/#{@shelter_2.id}"
+      
       expect(page).to have_content(@shelter_2.name)
       expect(page).to have_content(@shelter_2.address)
       expect(page).to have_content(@shelter_2.city)
@@ -51,6 +53,28 @@ RSpec.describe "As the user" do
       expect(current_path).to eq('/shelters')
 
       expect(page).to have_content("Old Shelter")
+      expect(page).to_not have_content("The Other Shelter")
+    end
+
+    xit "i can delete a shelter using the delete button" do
+      visit "/shelters/#{@shelter_1.id}"
+
+      click_button 'Delete'
+      expect(current_path).to eq('/shelters')
+
+      expect(page).to_not have_content('The Best Shelter')
     end
   end
 end
+
+
+
+# User Story 6, Shelter Delete
+#
+# As a visitor
+# When I visit a shelter show page
+# Then I see a link to delete the shelter
+# When I click the link
+# Then a 'DELETE' request is sent to '/shelters/:id',
+# the shelter is deleted,
+# and I am redirected to the shelter index page where I no longer see this shelter
