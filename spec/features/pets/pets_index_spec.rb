@@ -9,7 +9,7 @@ RSpec.describe "As a user" do
                                         state:    "CO",
                                         zip:      "80202"
       )
-      @charles = Pet.create(  image:      'images/pet_charles',
+      @charles = Pet.create(  image:      "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/152964589-welcome-home-new-cat-632x475.jpg",
                               name:       "Charles",
                               age:        "5",
                               sex:        "Male",
