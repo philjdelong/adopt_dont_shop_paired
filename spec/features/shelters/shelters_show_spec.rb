@@ -3,45 +3,45 @@ require 'rails_helper'
 RSpec.describe "As the user" do
   describe "when i visit shelter id", type: :feature do
     before :each do
-      @shelter_1 = Shelter.create(  name:     'The Best Shelter',
+      @shelter = Shelter.create(  name:     'The Shelter',
                                     address:  '1234 Address St.',
                                     city:     'Denver',
                                     state:    'CO',
                                     zip:      '80202'
       )
-      @shelter_2 = Shelter.create(  name:     'The Other Shelter',
-                                    address:  '4321 Address St.',
-                                    city:     'UnDenver',
-                                    state:    'NotCO',
-                                    zip:      '20208'
-      )
+      # @shelter_2 = Shelter.create(  name:     'The Other Shelter',
+      #                               address:  '4321 Address St.',
+      #                               city:     'UnDenver',
+      #                               state:    'NotCO',
+      #                               zip:      '20208'
+      # )
     end
 
-    it "i can see the shelter 1 info" do
-      visit "/shelters/#{@shelter_1.id}"
+    it "i can see the shelter info" do
+      visit "/shelters/#{@shelter.id}"
 
-      expect(page).to have_content(@shelter_1.name)
-      expect(page).to have_content(@shelter_1.address)
-      expect(page).to have_content(@shelter_1.city)
-      expect(page).to have_content(@shelter_1.state)
-      expect(page).to have_content(@shelter_1.zip)
+      expect(page).to have_content(@shelter.name)
+      expect(page).to have_content(@shelter.address)
+      expect(page).to have_content(@shelter.city)
+      expect(page).to have_content(@shelter.state)
+      expect(page).to have_content(@shelter.zip)
     end
 
-    it "i can see the shelter 2 info" do
-      visit "/shelters/#{@shelter_2.id}"
+    # it "i can see the shelter 2 info" do
+    #   visit "/shelters/#{@shelter_2.id}"
+    #
+    #   expect(page).to have_content(@shelter_2.name)
+    #   expect(page).to have_content(@shelter_2.address)
+    #   expect(page).to have_content(@shelter_2.city)
+    #   expect(page).to have_content(@shelter_2.state)
+    #   expect(page).to have_content(@shelter_2.zip)
+    # end
 
-      expect(page).to have_content(@shelter_2.name)
-      expect(page).to have_content(@shelter_2.address)
-      expect(page).to have_content(@shelter_2.city)
-      expect(page).to have_content(@shelter_2.state)
-      expect(page).to have_content(@shelter_2.zip)
-    end
-
-    it "i can update shelter 2 info using the edit button" do
-      visit "/shelters/#{@shelter_2.id}"
+    it "i can update shelter info using the edit button" do
+      visit "/shelters/#{@shelter.id}"
 
       click_link 'Edit Shelter'
-      expect(current_path).to eq("/shelters/#{@shelter_2.id}/edit")
+      expect(current_path).to eq("/shelters/#{@shelter.id}/edit")
 
       fill_in "Name", with: "Updated Shelter"
       fill_in "address", with: "Updated Address"
@@ -53,23 +53,19 @@ RSpec.describe "As the user" do
       expect(current_path).to eq('/shelters')
 
       expect(page).to have_content("Updated Shelter")
-      expect(page).to_not have_content("The Other Shelter")
+      expect(page).to_not have_content("The Shelter")
     end
 
-    xit "i can delete a shelter using the delete button" do
-      visit "/shelters/#{@shelter_1.id}"
+    it "i can delete shelter using the delete button" do
+      visit "/shelters/#{@shelter.id}"
 
       click_button 'Delete'
       expect(current_path).to eq('/shelters')
 
-      expect(page).to_not have_content('The Best Shelter')
+      expect(page).to_not have_content('The Shelter')
     end
   end
 end
-
-
-
-# User Story 5, Shelter Update
 
 # User Story 6, Shelter Delete
 #
