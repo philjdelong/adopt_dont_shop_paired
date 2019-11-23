@@ -39,7 +39,7 @@ RSpec.describe "As the user" do
       visit "/shelters/#{@shelter_2.id}"
 
       click_link 'Edit Shelter'
-      expect(current_path).to eq("shelters/#{@shelter_2.id}/edit")
+      expect(current_path).to eq("/shelters/#{@shelter_2.id}/edit")
 
       fill_in "Name", with: "Old Shelter"
       fill_in "address", with: "1234 New Address St."
