@@ -29,7 +29,7 @@ RSpec.describe "As the user" do
 
     it "i can see the shelter 2 info" do
       visit "/shelters/#{@shelter_2.id}"
-      
+
       expect(page).to have_content(@shelter_2.name)
       expect(page).to have_content(@shelter_2.address)
       expect(page).to have_content(@shelter_2.city)
@@ -43,16 +43,16 @@ RSpec.describe "As the user" do
       click_link 'Edit Shelter'
       expect(current_path).to eq("/shelters/#{@shelter_2.id}/edit")
 
-      fill_in "Name", with: "Old Shelter"
-      fill_in "address", with: "1234 New Address St."
-      fill_in "City", with: "New City"
-      fill_in "State", with: "New State"
-      fill_in "Zip", with: "New zip"
+      fill_in "Name", with: "Updated Shelter"
+      fill_in "address", with: "Updated Address"
+      fill_in "City", with: "Updated City"
+      fill_in "State", with: "Updated State"
+      fill_in "Zip", with: "Updated Zip"
 
       click_button 'Update'
       expect(current_path).to eq('/shelters')
 
-      expect(page).to have_content("Old Shelter")
+      expect(page).to have_content("Updated Shelter")
       expect(page).to_not have_content("The Other Shelter")
     end
 
@@ -68,6 +68,8 @@ RSpec.describe "As the user" do
 end
 
 
+
+# User Story 5, Shelter Update
 
 # User Story 6, Shelter Delete
 #
