@@ -4,10 +4,10 @@ RSpec.describe "As the user" do
   describe "when i visit shelter id", type: :feature do
     before :each do
       @shelter = Shelter.create(  name:     'The Shelter',
-                                    address:  '1234 Address St.',
-                                    city:     'Denver',
-                                    state:    'CO',
-                                    zip:      '80202'
+                                  address:  '1234 Address St.',
+                                  city:     'Denver',
+                                  state:    'CO',
+                                  zip:      '80202'
       )
       visit "/shelters/#{@shelter.id}"
     end
