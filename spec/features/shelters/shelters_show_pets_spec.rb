@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "As a visitor" do
-  describe "when i visit shelters show pets", type: :feature do
+  describe "when i visit a shelters show pets", type: :feature do
     before :each do
       @phils_shelter = Shelter.create(  name:     "Phil's Shelter",
                                         address:  "1234 Address St.",
@@ -9,32 +9,39 @@ RSpec.describe "As a visitor" do
                                         state:    "CO",
                                         zip:      "80202"
       )
-      @fluffy = Pet.create(   image:        "images/pet_fluffy",
+      @courtneys_shelter = Shelter.create(  name:     "Courtney's Shelter",
+                                            address:  "4321 Place Ave.",
+                                            city:     "Louisville",
+                                            state:    "KY",
+                                            zip:      "40220"
+      )
+      @fluffy = Pet.create(   image:        '/pet_fluffy.jpg',
                               name:         "Fluffy",
                               age:          12,
                               sex:          "Female",
                               shelter_id:   @phils_shelter.id
       )
-      @charles = Pet.create(  image:        "images/pet_charles.jpg",
+      @charles = Pet.create(  image:        '/pet_charles.jpg',
                               name:         "Charles",
                               age:          5,
                               sex:          "Male",
-                              shelter_id:   @phils_shelter.id
+                              shelter_id:   @courtneys_shelter.id
       )
       visit "/shelters/#{@phils_shelter.id}/pets"
     end
 
-    it "i see all pets that belong to the shelter" do
-
-      expect(page).to have_image("/image/pet_charles")
-      expect(page).to have_content("Charles")
-      expect(page).to have_content(5)
-      expect(page).to have_content("Male")
-
-      expect(page).to have_image("/image/pet_fluffy")
+    it "i see all pets that belong to that shelter" do
+      expect(page).to have_css("img[src*='#{@fluffy.image}']")
       expect(page).to have_content("Fluffy")
       expect(page).to have_content(12)
       expect(page).to have_content("Female")
+    end
+
+    it "i dont see pets from other shelters do" do
+      expect(page).to_not have_css("img[src*='#{@charles.image}']")
+      expect(page).to_not have_content("Charles")
+      expect(page).to_not have_content(5)
+      expect(page).to_not have_content("Male")
     end
   end
 end
@@ -45,13 +52,3 @@ end
 # fill_in 'Age' with: @fluffy.age
 # fill_in 'Sex' with: @fluffy.sex
 # fill_in 'Shelter' with: @fluffy.shelter_id
-
-# User Story 8, Shelter Pets Index
-#
-# As a visitor
-# When I visit '/shelters/:shelter_id/pets'
-# Then I see each Pet that can be adopted from that Shelter with that shelter_id including the Pet's:
-# - image
-# - name
-# - approximate age
-# - sex
