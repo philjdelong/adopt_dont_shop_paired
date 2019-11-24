@@ -13,7 +13,7 @@ RSpec.describe "As a user" do
                               name:       "Charles",
                               age:        "5",
                               sex:        "Male",
-                              shelter_id: @phils_shelter.id
+                              shelter: @phils_shelter.id
       )
       visit "/pets"
     end
@@ -24,7 +24,7 @@ RSpec.describe "As a user" do
       expect(page).to have_content(@charles.name)
       expect(page).to have_content(@charles.age)
       expect(page).to have_content(@charles.sex)
-      expect(page).to have_content(@charles.shelter_id)
+      expect(page).to have_content(@charles.shelter)
     end
   end
 end
