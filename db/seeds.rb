@@ -17,9 +17,21 @@ phils_shelter = Shelter.create( name:     "Phil's Shelter",
                                 state:    "CO",
                                 zip:      "80202"
 )
-charles = Pet.create( image:       "images/pet_charles.jpg",
+courtneys_shelter = Shelter.create( name:     "Courtney's Shelter",
+                                    address:  "4321 Place Ave.",
+                                    city:     "Louisville",
+                                    state:    "KY",
+                                    zip:      "40220"
+)
+charles = Pet.create( image:       "/pet_charles.jpg",
                       name:        "Charles",
                       age:         5,
                       sex:         "Male",
                       shelter_id:  phils_shelter.id
+)
+fluffy = Pet.create(  image:        "/pet_fluffy.jpg",
+                      name:         "Fluffy",
+                      age:          12,
+                      sex:          "Female",
+                      shelter_id:   courtneys_shelter.id
 )
