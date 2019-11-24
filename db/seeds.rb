@@ -19,7 +19,7 @@ phils_shelter = Shelter.create( name:     "Phil's Shelter",
 )
 charles = Pet.create( image:       "images/pet_charles.jpg",
                       name:        "Charles",
-                      age:         "5",
+                      age:         5,
                       sex:         "Male",
                       shelter_id:  phils_shelter.id
 )
