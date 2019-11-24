@@ -9,18 +9,18 @@ RSpec.describe "As a user" do
                                         state:    "CO",
                                         zip:      "80202"
       )
-      @charles = Pet.create(  image:      "images/pet_charles.jpg",
-                              name:       "Charles",
-                              age:        "5",
-                              sex:        "Male",
-                              shelter_id: @phils_shelter.id
+      @charles = Pet.create(  image:        '/pet_charles.jpg',
+                              name:         "Charles",
+                              age:          5,
+                              sex:          "Male",
+                              shelter_id:   @phils_shelter.id
       )
       visit "/pets"
     end
 
     it "i can see all adoptable pets" do
 
-      expect(page).to have_content(@charles.image)
+      expect(page).to have_css("img[src*='#{@charles.image}']")
       expect(page).to have_content(@charles.name)
       expect(page).to have_content(@charles.age)
       expect(page).to have_content(@charles.sex)
