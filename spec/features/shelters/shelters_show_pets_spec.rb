@@ -9,22 +9,22 @@ RSpec.describe "As a visitor" do
                                         state:    "CO",
                                         zip:      "80202"
       )
-      @fluffy = Pet.create(   image:      "images/pet_fluffy",
-                              name:       "Fluffy",
-                              age:        12,
-                              sex:        "Female",
-                              shelter_id: @phils_shelter.id
+      @fluffy = Pet.create(   image:        "images/pet_fluffy",
+                              name:         "Fluffy",
+                              age:          12,
+                              sex:          "Female",
+                              shelter_id:   @phils_shelter.id
       )
-      @charles = Pet.create(  image:       "images/pet_charles.jpg",
-                              name:        "Charles",
-                              age:         5,
-                              sex:         "Male",
-                              shelter_id:  @phils_shelter.id
+      @charles = Pet.create(  image:        "images/pet_charles.jpg",
+                              name:         "Charles",
+                              age:          5,
+                              sex:          "Male",
+                              shelter_id:   @phils_shelter.id
       )
       visit "/shelters/#{@phils_shelter.id}/pets"
     end
 
-    it "and click on new pet im taken to the pets new form" do
+    it "i see all pets that belong to the shelter" do
 
       ecpect(page).to have_image("/image/pet_charles")
       ecpect(page).to have_content("Charles")
