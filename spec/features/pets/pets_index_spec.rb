@@ -13,7 +13,7 @@ RSpec.describe "As a user" do
                               name:       "Charles",
                               age:        "5",
                               sex:        "Male",
-                              shelter: @phils_shelter.id
+                              shelter_id: @phils_shelter.id
       )
       visit "/pets"
     end
@@ -24,19 +24,7 @@ RSpec.describe "As a user" do
       expect(page).to have_content(@charles.name)
       expect(page).to have_content(@charles.age)
       expect(page).to have_content(@charles.sex)
-      expect(page).to have_content(@charles.shelter)
+      expect(page).to have_content(@charles.shelter_id)
     end
   end
 end
-
-
-# User Story 7, Pet Index
-#
-# As a visitor
-# When I visit '/pets'
-# Then I see each Pet in the system including the Pet's:
-# - image
-# - name
-# - approximate age
-# - sex
-# - name of the shelter where the pet is currently located
