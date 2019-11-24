@@ -26,15 +26,15 @@ RSpec.describe "As a visitor" do
 
     it "i see all pets that belong to the shelter" do
 
-      ecpect(page).to have_image("/image/pet_charles")
-      ecpect(page).to have_content("Charles")
-      ecpect(page).to have_content(5)
-      ecpect(page).to have_content("Male")
+      expect(page).to have_image("/image/pet_charles")
+      expect(page).to have_content("Charles")
+      expect(page).to have_content(5)
+      expect(page).to have_content("Male")
 
-      ecpect(page).to have_image("/image/pet_fluffy")
-      ecpect(page).to have_content("Fluffy")
-      ecpect(page).to have_content(12)
-      ecpect(page).to have_content("Female")
+      expect(page).to have_image("/image/pet_fluffy")
+      expect(page).to have_content("Fluffy")
+      expect(page).to have_content(12)
+      expect(page).to have_content("Female")
     end
   end
 end
