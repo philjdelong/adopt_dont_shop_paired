@@ -1,0 +1,12 @@
+<h1>Pets Index</h1>
+
+<% @pets.each do |pet| %>
+  <h3><%= pet.name %></h3>
+  <p><%= pet.image %></p>
+  <p>Age: <%= pet.age %></p>
+  <p>Sex: <%= pet.sex %></p>
+  <p>Shelter: <%= pet.shelter_id %></p>
+<% end %>
+
+<br>
+<%= link_to "New Pet", '/pets/new' %>

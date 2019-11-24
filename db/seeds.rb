@@ -11,15 +11,15 @@
 # Shelter.destroy_all (this will destroy all instanced once seed is run)
 # Pet.destroy_all (this will destroy all instanced once seed is run)
 
-shelter_1 = Shelter.create(  name:     'The Best Shelter',
-                              address:  '1234 Address St.',
-                              city:     'Denver',
-                              state:    'CO',
-                              zip:      '80202'
+phils_shelter = Shelter.create( name:     "Phil's Shelter",
+                                address:  "1234 Address St.",
+                                city:     "Denver",
+                                state:    "CO",
+                                zip:      "80202"
 )
-shelter_2 = Shelter.create(  name:     'The Other Shelter',
-                              address:  '4321 Address St.',
-                              city:     'UnDenver',
-                              state:    'NotCO',
-                              zip:      '20208'
+charles = Pet.create( image:       "images/pet_charles.jpg",
+                      name:        "Charles",
+                      age:         5,
+                      sex:         "Male",
+                      shelter_id:  phils_shelter.id
 )
