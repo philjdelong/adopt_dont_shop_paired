@@ -45,10 +45,3 @@ RSpec.describe "As a visitor" do
     end
   end
 end
-
-# EDIT PETS
-# fill_in 'Name' with: @fluffy.name
-# fill_in 'Image' with: @fluffy.image
-# fill_in 'Age' with: @fluffy.age
-# fill_in 'Sex' with: @fluffy.sex
-# fill_in 'Shelter' with: @fluffy.shelter_id
