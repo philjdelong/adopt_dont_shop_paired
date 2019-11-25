@@ -48,5 +48,12 @@ RSpec.describe "As a user" do
       click_on "Edit #{@fluffy.name}"
       expect(current_path).to eq("/pets/#{@fluffy.id}/edit")
     end
+
+    it "i can click and delete each pet" do
+      click_on 'Delete Charles'
+      expect(current_path).to eq("/pets")
+
+      expect(page).to_not have_content(@charles.name)
+    end
   end
 end
