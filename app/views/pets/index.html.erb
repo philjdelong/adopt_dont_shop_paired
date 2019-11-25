@@ -3,8 +3,7 @@
 <br><br>
 <% @pets.each do |pet| %>
   <img src=<%= pet.image %>>
-  <h3>Name: <%= pet.name %>
-  <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %></h3>
+  <h3>Name: <%= pet.name %></h3>
   <p>Age: <%= pet.age %></p>
   <p>Sex: <%= pet.sex %></p>
   <p>Description: <%= pet.description %></p>
@@ -14,5 +13,7 @@
     <% else %>
       Adoption pending...
   <% end %></p>
+  <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
+  <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %></h3>
   <br><br>
 <% end %>
