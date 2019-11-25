@@ -31,7 +31,7 @@ RSpec.describe "As a user" do
       expect(page).to have_content("He may look paranoid, and he is!")
       expect(page).to have_content(2)
       expect(page).to have_content("male")
-      expect(page).to have_content("Adoptable!")
+      expect(page).to have_content("Adoptable")
     end
   end
 end
