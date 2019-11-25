@@ -14,5 +14,6 @@
     <% else %>
       Adoption pending...
   <% end %></p>
+  <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %></h3>
   <br><br>
 <% end %>
