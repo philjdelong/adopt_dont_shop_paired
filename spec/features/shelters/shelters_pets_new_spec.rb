@@ -35,21 +35,3 @@ RSpec.describe "As a user" do
     end
   end
 end
-
-# User Story 10, Shelter Pet Creation
-#
-# As a visitor
-# When I visit a Shelter Pets Index page
-# Then I see a link to add a new adoptable pet for that shelter
-# When I click the link
-# I am taken to '/shelters/:shelter_id/pets/new' where I see a form to add a new adoptable pet
-# When I fill in the form with the pet's:
-# - image
-# - name
-# - description
-# - approximate age
-# - sex ('female' or 'male')
-# Then a `POST` request is sent to '/shelters/:shelter_id/pets',
-# a new pet is created for that shelter,
-# that pet has a status of 'adoptable',
-# and I am redirected to the Shelter Pets Index page where I can see the new pet listed
