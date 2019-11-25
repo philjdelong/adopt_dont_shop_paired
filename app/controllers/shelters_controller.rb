@@ -31,7 +31,7 @@ class SheltersController < ApplicationController
     redirect_to '/shelters'
   end
 
-  def show_pets
+  def pets_index
     @shelter = Shelter.find(params[:id])
     @pets = @shelter.pets
   end
