@@ -22,7 +22,7 @@ RSpec.describe "As the user" do
       expect(current_path).to eq('/shelters/new')
     end
 
-    it "i can edit each shelter" do
+    it "i can click a link to edit each shelter" do
       click_on 'Edit Shelter'
       expect(current_path).to eq("/shelters/#{@phils_shelter.id}/edit")
     end
