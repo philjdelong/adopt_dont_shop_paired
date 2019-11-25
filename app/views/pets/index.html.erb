@@ -1,12 +1,17 @@
-<h1>Pets Index</h1>
-
+<%= link_to 'Home', "/" %>
+<h1>All Pets</h1>
+<br><br>
 <% @pets.each do |pet| %>
-  <h3><%= pet.name %></h3>
   <img src=<%= pet.image %>>
+  <h3>Name: <%= pet.name %></h3>
   <p>Age: <%= pet.age %></p>
   <p>Sex: <%= pet.sex %></p>
-  <p>Shelter: <%= pet.shelter_id %></p>
-  <p>Adoption Status: Adoptable</p>
+  <p>Description: <%= pet.description %></p>
+  <p>Adoption Status:
+    <% if pet.status == true %>
+      Adoptable
+    <% else %>
+      Adoption pending...
+  <% end %></p>
+  <br><br>
 <% end %>
-
-<br>

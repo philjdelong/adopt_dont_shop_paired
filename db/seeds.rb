@@ -23,13 +23,13 @@ courtneys_shelter = Shelter.create( name:     "Courtney's Shelter",
                                     state:    "KY",
                                     zip:      "40220"
 )
-charles = Pet.create( image:       "/pet_charles.jpg",
+charles = Pet.create( image:       "https://timesofindia.indiatimes.com/thumb/msid-67586673,width-800,height-600,resizemode-4/67586673.jpg",
                       name:        "Charles",
                       age:         5,
                       sex:         "Male",
                       shelter_id:  phils_shelter.id
 )
-fluffy = Pet.create(  image:        "/pet_fluffy.jpg",
+fluffy = Pet.create(  image:        "https://www.sideshow.com/storage/product-images/903202/t-rex__feature.jpg",
                       name:         "Fluffy",
                       age:          12,
                       sex:          "Female",
