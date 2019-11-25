@@ -24,7 +24,6 @@ RSpec.describe "As a user" do
       expect(page).to have_content(@charles.name)
       expect(page).to have_content(@charles.age)
       expect(page).to have_content(@charles.sex)
-      expect(page).to have_content(@charles.shelter_id)
     end
   end
 end

@@ -21,14 +21,12 @@ RSpec.describe "As a user" do
                               age:          12,
                               sex:          "Female",
                               shelter_id:   @phils_shelter.id,
-                              status:       "Adoptable"
       )
       @charles = Pet.create(  image:        '/pet_charles.jpg',
                               name:         "Charles",
                               description:  "He likes to go by 'Chuck'",
                               age:          5,
                               sex:          "Male",
-                              status:       "Pending Adoption",
                               shelter_id:   @courtneys_shelter.id
       )
     end
@@ -41,7 +39,7 @@ RSpec.describe "As a user" do
       expect(page).to have_content("Fluffy is very aggressive, but you'll love her!")
       expect(page).to have_content(12)
       expect(page).to have_content("Female")
-      expect(page).to have_content("Adoptable")
+      expect(page).to have_content(@fluffy.status)
 
       expect(page).to_not have_content("Charles")
     end
