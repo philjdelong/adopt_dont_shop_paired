@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/', to: 'home#index'
   get '/pets/', to: 'pets#index'
   get '/pets/:id', to: 'pets#show'
-  get '/pets/:id/edit', to: 'pets#edit'
+  post '/pets/:id/edit', to: 'pets#edit'
   patch '/pets/:id', to: 'pets#update'
   delete '/pets/:id', to: 'pets#destroy'
 
