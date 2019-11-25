@@ -1,3 +1,4 @@
+<%= link_to "Back to #{@shelter.name}", "/shelters/#{@shelter.id}" %>
 <h1><%= @shelter.name %> Pets</h1>
 
 <% @pets.each do |pet| %>
@@ -6,7 +7,13 @@
   <p>Description: <%= pet.description %>
   <p>Approximate Age: <%= pet.age %>
   <p>Sex: <%= pet.sex %>
-  <p>Status: Adoptable!
+  <p>Adoption Status:
+    <% if pet.status == true %>
+      Adoptable
+    <% else %>
+      Adoption pending...
+  <% end %></p>
+  <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
 <% end %>
 <br><br>
 <%= link_to "New Pet", "/shelters/#{@shelter.id}/pets/new" %>

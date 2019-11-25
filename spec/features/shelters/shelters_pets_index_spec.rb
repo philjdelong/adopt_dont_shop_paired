@@ -37,11 +37,16 @@ RSpec.describe "As a user" do
       expect(page).to have_content("Female")
     end
 
-    it "i dont see pets from other shelters do" do
+    it "i dont see pets from other shelters" do
       expect(page).to_not have_css("img[src*='#{@charles.image}']")
       expect(page).to_not have_content("Charles")
       expect(page).to_not have_content(5)
       expect(page).to_not have_content("Male")
+    end
+
+    it "i can edit each pet from the shelters pets list" do
+      click_on "Edit #{@fluffy.name}"
+      expect(current_path).to eq("/pets/#{@fluffy.id}/edit")
     end
   end
 end
