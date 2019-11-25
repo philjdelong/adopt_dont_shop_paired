@@ -23,7 +23,7 @@ RSpec.describe "As the user" do
 
     it "i can update shelter info using the edit button" do
 
-      click_link 'Edit Shelter'
+      click_on 'Edit Shelter'
       expect(current_path).to eq("/shelters/#{@shelter.id}/edit")
 
       fill_in "Name", with: "Updated Shelter"
@@ -32,7 +32,7 @@ RSpec.describe "As the user" do
       fill_in "State", with: "Updated State"
       fill_in "Zip", with: "Updated Zip"
 
-      click_button 'Update'
+      click_on 'Update'
       expect(current_path).to eq('/shelters')
 
       expect(page).to have_content("Updated Shelter")
@@ -41,7 +41,7 @@ RSpec.describe "As the user" do
 
     it "i can delete shelter using the delete button" do
 
-      click_button 'Delete'
+      click_on 'Delete'
       expect(current_path).to eq('/shelters')
 
       expect(page).to_not have_content('The Shelter')
