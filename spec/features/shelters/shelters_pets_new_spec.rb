@@ -15,7 +15,7 @@ RSpec.describe "As a user" do
 
     it "i can add a new shelter pet" do
       click_button 'New Pet'
-      expect(current_path).to eq("/shelters/#{@phils_shelter.id}/pets")
+      expect(current_path).to eq("/shelters/#{@phils_shelter.id}/pets/new")
 
       fill_in 'Image', with: "https://images2.minutemediacdn.com/image/upload/c_crop,h_1193,w_2121,x_0,y_64/f_auto,q_auto,w_1100/v1565279671/shape/mentalfloss/578211-gettyimages-542930526.jpg"
       fill_in 'Name', with: "Zeke"
@@ -24,7 +24,7 @@ RSpec.describe "As a user" do
       fill_in 'Sex', with: "male"
 
       click_button 'Add Pet'
-      expect(current_path).to eq("/shelters/#{@phils_shelter.id}/pets")
+      expect(current_path).to eq("/shelters/#{@phils_shelter.id}/pets/new")
 
       expect(page).to have_image("https://images2.minutemediacdn.com/image/upload/c_crop,h_1193,w_2121,x_0,y_64/f_auto,q_auto,w_1100/v1565279671/shape/mentalfloss/578211-gettyimages-542930526.jpg")
       expect(page).to have_content("Zeke")
