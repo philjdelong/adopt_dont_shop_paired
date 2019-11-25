@@ -14,6 +14,7 @@
       Adoption pending...
   <% end %></p>
   <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
+  <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
 <% end %>
 <br><br>
 <%= link_to "New Pet", "/shelters/#{@shelter.id}/pets/new" %>
