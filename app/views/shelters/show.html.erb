@@ -1,5 +1,6 @@
 <%= link_to 'Back', "/shelters" %>
 <h1><%= @shelter.name %></h1>
+<%= link_to "#{@shelter.name} Pets", "/shelters/#{@shelter.id}/pets" %>
 
 <h3>Address:</h3>
    <p><%= @shelter.address %></p>
