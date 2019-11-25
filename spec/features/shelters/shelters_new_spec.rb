@@ -7,7 +7,7 @@ RSpec.describe "As a user" do
       it "i see a form for new shelter" do
         visit '/shelters'
 
-        click_link "New Shelter"
+        click_on "New Shelter"
         expect(current_path).to eq('/shelters/new')
 
         fill_in 'Name', with: "Phil's Spot"
