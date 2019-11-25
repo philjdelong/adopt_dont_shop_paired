@@ -25,5 +25,10 @@ RSpec.describe "As a user" do
       expect(page).to have_content(@charles.age)
       expect(page).to have_content(@charles.sex)
     end
+
+    it "i can click and edit each pet" do
+      click_on 'Edit Charles'
+      expect(current_path).to eq("/pets/#{@charles.id}/edit")
+    end
   end
 end
