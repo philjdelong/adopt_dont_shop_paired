@@ -1,4 +1,4 @@
-<h1>Shelter Pets</h1>
+<h1><%= @shelter.name %> Pets</h1>
 
 <% @pets.each do |pet| %>
   <h2>Meet <%= pet.name %>!</h2>
@@ -6,3 +6,5 @@
   <p>Approximate Age:<%= pet.age %>
   <p>Sex: <%= pet.sex %>
 <% end %>
+<br><br>
+<%= button_to "New Pet", "/shelters/#{@shelter.id}/pets/new" %>
