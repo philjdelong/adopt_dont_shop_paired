@@ -3,8 +3,10 @@
 <% @pets.each do |pet| %>
   <h2>Meet <%= pet.name %>!</h2>
   <img src= <%= pet.image %>>
-  <p>Approximate Age:<%= pet.age %>
+  <p>Description: <%= pet.description %>
+  <p>Approximate Age: <%= pet.age %>
   <p>Sex: <%= pet.sex %>
+  <p>Status: Adoptable!
 <% end %>
 <br><br>
-<%= button_to "New Pet", "/shelters/#{@shelter.id}/pets/new" %>
+<%= link_to "New Pet", "/shelters/#{@shelter.id}/pets/new" %>

@@ -14,22 +14,22 @@ RSpec.describe "As a user" do
     end
 
     it "i can add a new shelter pet" do
-      click_button 'New Pet'
+      click_link 'New Pet'
       expect(current_path).to eq("/shelters/#{@phils_shelter.id}/pets/new")
 
-      fill_in 'Image', with: "https://images2.minutemediacdn.com/image/upload/c_crop,h_1193,w_2121,x_0,y_64/f_auto,q_auto,w_1100/v1565279671/shape/mentalfloss/578211-gettyimages-542930526.jpg"
+      fill_in 'Image', with: "https://i1.wp.com/dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/291/2019/06/21124954/Praying-mantis.jpg?ssl=1"
       fill_in 'Name', with: "Zeke"
       fill_in 'Description', with: "He may look paranoid, and he is!"
-      fill_in 'Age', with: 2.125
+      fill_in 'Age', with: 2
       fill_in 'Sex', with: "male"
 
-      click_button 'Add Pet'
-      expect(current_path).to eq("/shelters/#{@phils_shelter.id}/pets/new")
+      click_on 'Add Pet'
+      expect(current_path).to eq("/shelters/#{@phils_shelter.id}/pets")
 
-      expect(page).to have_image("https://images2.minutemediacdn.com/image/upload/c_crop,h_1193,w_2121,x_0,y_64/f_auto,q_auto,w_1100/v1565279671/shape/mentalfloss/578211-gettyimages-542930526.jpg")
+      expect(page).to have_css("img[src*='https://i1.wp.com/dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/291/2019/06/21124954/Praying-mantis.jpg?ssl=1']")
       expect(page).to have_content("Zeke")
       expect(page).to have_content("He may look paranoid, and he is!")
-      expect(page).to have_content(2.125)
+      expect(page).to have_content(2)
       expect(page).to have_content("male")
       expect(page).to have_content("Adoptable!")
     end

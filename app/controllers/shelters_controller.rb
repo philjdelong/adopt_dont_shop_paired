@@ -43,7 +43,7 @@ class SheltersController < ApplicationController
   def pets_create
     shelter = Shelter.find(params[:shelter_id])
     shelter.pets.create(pet_params)
-    redirect_to "shelters/#{shelter.id}/pets"
+    redirect_to "/shelters/#{shelter.id}/pets"
   end
 
   private
@@ -53,7 +53,7 @@ class SheltersController < ApplicationController
     end
 
     def pet_params
-      params.permit(:image, :name, :description, :age, :sex)
+      params.permit(:image, :name, :description, :age, :sex, :shelter_id)
     end
 
 end
