@@ -2,7 +2,7 @@
 <h1><%= @shelter.name %> Pets</h1>
 
 <% @pets.each do |pet| %>
-  <h2>Meet <%= pet.name %></h2>
+  <h2>Meet: <%= pet.name %></h2>
   <img src= <%= pet.image %>>
   <p>Description: <%= pet.description %>
   <p>Approximate Age: <%= pet.age %>
