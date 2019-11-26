@@ -1,22 +1,23 @@
-<h1>This is <%= link_to "#{@pet.name}" %></h1>
+<h1><%= link_to "#{@pet.name}" %>:</h1>
    <img src= <%= @pet.image %>>
 
-<h3>Description: </h3>
+<h2>Description: </h2>
   <p><%= @pet.description %></p>
 
-<h3>Approximate Age: </h3>
-  <p><%= @pet.age %></p>
+<h2>Approximate Age: </h2>
+  <p><%= @pet.age %> years</p>
 
-<h3>Sex: </h3>
+<h2>Sex: </h2>
   <p><%= @pet.sex %></p>
 
-<h3>Adoption Status: </h3>
+<h2>Adoption Status: </h2>
   <p><% if @pet.status == true %>
     Adoptable
     <% else %>
     Adoption pending...
     <% end %>
   </p>
+
 
 <%= button_to "Edit Pet", "/pets/#{@pet.id}/edit" %>
 <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
