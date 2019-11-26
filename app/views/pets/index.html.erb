@@ -1,18 +1,23 @@
-<h1>All Pets</h1>
-<br><br>
-<% @pets.each do |pet| %>
-  <img src=<%= pet.image %>>
-  <h3>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
-  <p>Age: <%= pet.age %></p>
-  <p>Sex: <%= pet.sex %></p>
-  <p>Description: <%= pet.description %></p>
-  <p>Adoption Status:
-    <% if pet.status == true %>
-      Adoptable
-    <% else %>
-      Adoption pending...
-  <% end %></p>
-  <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
-  <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %></h3>
-  <br><br>
+<h1>Pets:</h1>
+
+  <body>
+    <% @pets.each do |pet| %>
+      <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
+      <img src=<%= pet.image %>>
+      <h3>Age: </h3>
+        <p><%= pet.age %> years</p>
+      <h3>Sex: </h3>
+        <p><%= pet.sex %></p>
+      <h3>Description: </h3>
+         <p><%= pet.description %></p>
+      <h3>Adoption Status: </h3>
+        <p><% if pet.status == true %>
+          Adoptable
+        <% else %>
+          Adoption pending...
+      <% end %></p>
+      <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
+      <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %></h3>
+    <br><br>
+  </body>
 <% end %>
