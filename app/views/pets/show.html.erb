@@ -1,4 +1,3 @@
-<%= link_to 'Back', "/pets" %>
 <h1>This is <%= link_to "#{@pet.name}" %></h1>
    <img src= <%= @pet.image %>>
 
@@ -18,7 +17,6 @@
     Adoption pending...
     <% end %>
   </p>
-<br>
 
 <%= button_to "Edit Pet", "/pets/#{@pet.id}/edit" %>
 <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
