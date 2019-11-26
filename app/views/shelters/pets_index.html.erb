@@ -1,8 +1,7 @@
-<%= link_to "Back to #{@shelter.name}", "/shelters/#{@shelter.id}" %>
-<h1><%= @shelter.name %> Pets</h1>
+<h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %> Pets</h1>
 
 <% @pets.each do |pet| %>
-  <h2>This is <%= link_to "#{pet.name}" %></h2>
+  <h2>This is <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
   <img src= <%= pet.image %>>
   <p>Description: <%= pet.description %>
   <p>Approximate Age: <%= pet.age %>
