@@ -1,7 +1,8 @@
 <%= link_to 'Back', "/shelters" %>
-<br><br>
+  <br>
+  <br>
 <h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
-<br>
+  <br>
 <h3>Available Pets:</h3>
 <%= link_to "#{@shelter.name} Pets", "/shelters/#{@shelter.id}/pets" %>
 <h3>Address:</h3>
@@ -12,6 +13,7 @@
   <p><%= @shelter.state %></p>
 <h3>Zip:</h3>
   <p><%= @shelter.zip %></p>
-<br><br>
+  <br>
+  <br>
 <%= button_to "Edit Shelter", "/shelters/#{@shelter.id}/edit" %>
 <%= button_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
