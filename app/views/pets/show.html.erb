@@ -1,5 +1,5 @@
 <%= link_to 'Back', "/pets" %>
-<h1><%= @pet.name %></h1>
+<h1>This is <%= link_to "#{@pet.name}" %></h1>
    <img src= <%= @pet.image %>>
 
 <h3>Description: </h3>
@@ -12,7 +12,12 @@
   <p><%= @pet.sex %></p>
 
 <h3>Adoption Status: </h3>
-  <p><%= @pet.status %></p>
+  <p><% if @pet.status == true %>
+    Adoptable
+    <% else %>
+    Adoption pending...
+    <% end %>
+  </p>
 <br>
 
 <%= button_to "Edit Pet", "/pets/#{@pet.id}/edit" %>

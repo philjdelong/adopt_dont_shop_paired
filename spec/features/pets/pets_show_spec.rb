@@ -39,7 +39,7 @@ RSpec.describe "As a user" do
       expect(page).to have_content("Fluffy is very aggressive, but you'll love her!")
       expect(page).to have_content(12)
       expect(page).to have_content("Female")
-      expect(page).to have_content(@fluffy.status)
+      expect(page).to have_content("Adoptable")
 
       expect(page).to_not have_content("Charles")
     end

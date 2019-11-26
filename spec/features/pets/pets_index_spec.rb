@@ -37,5 +37,12 @@ RSpec.describe "As a user" do
 
       expect(page).to_not have_content(@charles.name)
     end
+
+    it "i click pets name and see pets show page" do
+      click_on "#{@charles.name}"
+      expect(current_path).to eq("/pets/#{@charles.id}")
+      click_on "#{@charles.name}"
+      expect(current_path).to eq("/pets/#{@charles.id}")
+    end
   end
 end
