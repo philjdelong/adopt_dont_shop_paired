@@ -6,6 +6,7 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
+    @reviews = @shelter.reviews
   end
 
   def new
@@ -27,6 +28,7 @@ class SheltersController < ApplicationController
   end
 
   def destroy
+    Review.delete(Review.where(shelter_id: params[:id]))
     Pet.delete(Pet.where(shelter_id: params[:id]))
     Shelter.destroy(params[:id])
     redirect_to '/shelters'
