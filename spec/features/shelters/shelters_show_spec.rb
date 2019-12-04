@@ -9,6 +9,27 @@ RSpec.describe "As the user" do
                                   state:    'CO',
                                   zip:      '80202'
       )
+      @shelter_2 = Shelter.create(  name:   'Shelter 2',
+                                  address:  '4321 Address St.',
+                                  city:     'Uhhhh',
+                                  state:    'OC',
+                                  zip:      '09999'
+      )
+
+      @review_1 = Review.create(  title: "Love it!",
+                                  rating: 5,
+                                  content: "I hope they adopt me",
+                                  picture: "https://resc-files-prod.s3.us-west-1.amazonaws.com/s3fs-public/styles/large/public/2018-12/welcome-home-preventing-problems_1.jpg?itok=aSaZWhxP",
+                                  shelter_id: @shelter.id
+
+      )
+
+      @review_2 = Review.create(  title: "It's ok",
+                                  rating: 2,
+                                  content: "I might recommend to a friend",
+                                  shelter_id: @shelter_2.id
+
+      )
       visit "/shelters/#{@shelter.id}"
     end
 
@@ -50,6 +71,20 @@ RSpec.describe "As the user" do
     it "i can click a link to visit shelters pets index" do
       click_on "#{@shelter.name} Pets"
       expect(current_path).to eq("/shelters/#{@shelter.id}/pets")
+    end
+
+    it "i can see all reviews for that shelter" do
+      expect(page).to have_content("Reviews:")
+
+      expect(page).to have_content(@review_1.title)
+      expect(page).to have_content("#{@review_1.rating} Stars!")
+      expect(page).to have_content(@review_1.content)
+      expect(page).to have_content(@review_1.picture)
+
+      expect(page).to_not have_content(@review_2.title)
+      expect(page).to_not have_content("#{@review_2.rating} Stars!")
+      expect(page).to_not have_content(@review_2.content)
+      expect(page).to_not have_content(@review_2.picture)
     end
   end
 end
