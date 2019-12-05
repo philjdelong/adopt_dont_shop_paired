@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "As the user" do
   describe "when i visit shelter id", type: :feature do
     before :each do
-      @shelter = Shelter.create(  name:     'The Shelter',
+      @shelter_1 = Shelter.create(  name:     'The Shelter',
                                   address:  '1234 Address St.',
                                   city:     'Denver',
                                   state:    'CO',
@@ -20,7 +20,7 @@ RSpec.describe "As the user" do
                                   rating: 5,
                                   content: "I hope they adopt me",
                                   picture: "https://resc-files-prod.s3.us-west-1.amazonaws.com/s3fs-public/styles/large/public/2018-12/welcome-home-preventing-problems_1.jpg?itok=aSaZWhxP",
-                                  shelter_id: @shelter.id
+                                  shelter_id: @shelter_1.id
 
       )
 
@@ -30,22 +30,22 @@ RSpec.describe "As the user" do
                                   shelter_id: @shelter_2.id
 
       )
-      visit "/shelters/#{@shelter.id}"
+      visit "/shelters/#{@shelter_1.id}"
     end
 
     it "i can see the shelter info" do
 
-      expect(page).to have_content(@shelter.name)
-      expect(page).to have_content(@shelter.address)
-      expect(page).to have_content(@shelter.city)
-      expect(page).to have_content(@shelter.state)
-      expect(page).to have_content(@shelter.zip)
+      expect(page).to have_content(@shelter_1.name)
+      expect(page).to have_content(@shelter_1.address)
+      expect(page).to have_content(@shelter_1.city)
+      expect(page).to have_content(@shelter_1.state)
+      expect(page).to have_content(@shelter_1.zip)
     end
 
     it "i can update shelter info using the edit button" do
 
       click_on 'Edit Shelter'
-      expect(current_path).to eq("/shelters/#{@shelter.id}/edit")
+      expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
 
       fill_in "Name", with: "Updated Shelter"
       fill_in "address", with: "Updated Address"
@@ -69,8 +69,8 @@ RSpec.describe "As the user" do
     end
 
     it "i can click a link to visit shelters pets index" do
-      click_on "#{@shelter.name} Pets"
-      expect(current_path).to eq("/shelters/#{@shelter.id}/pets")
+      click_on "#{@shelter_1.name} Pets"
+      expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
     end
 
     it "i can see all reviews for that shelter" do
@@ -85,6 +85,12 @@ RSpec.describe "As the user" do
       expect(page).to_not have_content("#{@review_2.rating} Stars!")
       expect(page).to_not have_content(@review_2.content)
       expect(page).to_not have_content(@review_2.picture)
+    end
+
+    it 'i can click a new review button' do
+
+      click_on 'New Review'
+      expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
     end
   end
 end

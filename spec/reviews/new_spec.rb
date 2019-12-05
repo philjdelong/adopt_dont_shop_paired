@@ -24,15 +24,15 @@ RSpec.describe "As a user" do
     it "I can click a link to be taken to a new review path" do
 
       click_on "New Review"
-      expect(current_path).to eq("/shelters/:id/review/new")
+      expect(current_path).to eq("/shelters/#{@phils_shelter.id}/reviews/new")
 
       fill_in 'Title', with: "#{@review_1.title}"
       fill_in 'Rating', with: @review_1.rating
       fill_in 'Content', with: "#{@review_1.content}"
-      expect(page).to have_content("Image")
+      expect(page).to have_content("Picture")
 
       click_on 'Create'
-      expect(current_path).to eq("Shelters/#{@phils_shelter.id}")
+      expect(current_path).to eq("/shelters/#{@phils_shelter.id}")
 
       expect(page).to have_content(@review_1.title)
       expect(page).to have_content(@review_1.rating)
