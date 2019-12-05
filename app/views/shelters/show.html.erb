@@ -24,7 +24,10 @@
   <p><%= review.rating %> Stars!</p>
   <p><%= review.content %></p>
   <p><%= review.picture %></p>
+
+  <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit" %>
 <% end %>
 
 <%= button_to "Edit Shelter", "/shelters/#{@shelter.id}/edit" %>
 <%= button_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+<%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new" %>

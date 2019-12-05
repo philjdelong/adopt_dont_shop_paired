@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   patch '/shelters/:id', to: 'shelters#update'
   delete '/shelters/:id', to: 'shelters#destroy'
 
+
   get '/pets', to: 'pets#index'
   get '/pets/:id', to: 'pets#show'
   post '/pets/:id/edit', to: 'pets#edit'
@@ -18,4 +19,11 @@ Rails.application.routes.draw do
   get '/shelters/:shelter_id/pets/new', to: 'pets#new'
   post '/shelters/:shelter_id/pets', to: 'pets#create'
   delete '/pets/:id', to: 'pets#destroy'
+
+
+  get '/shelters/:shelter_id/reviews/new', to: 'reviews#new'
+  post '/shelters/:shelter_id', to: 'reviews#create'
+  get '/shelters/:shelter_id/reviews/:review_id/edit', to: 'reviews#edit'
+  patch '/shelters/:shelter_id/reviews/:review_id', to: 'reviews#update'
+
 end
