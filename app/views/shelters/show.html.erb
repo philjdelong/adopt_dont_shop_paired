@@ -20,12 +20,15 @@
 
 <h2>Reviews:</h2>
 <% @reviews.each do |review| %>
+<section id="review-<%= review.id %>">
   <p><%= review.title %></p>
   <p><%= review.rating %>/5 Stars!</p>
   <p><%= review.content %></p>
   <p><%= review.picture %></p>
 
   <%= link_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit" %>
+  <%= button_to "Delete Review", "/shelters/#{@shelter.id}/reviews/#{review.id}", method: :delete %>
+</section>
 <% end %>
 
 <%= button_to "Edit Shelter", "/shelters/#{@shelter.id}/edit" %>
