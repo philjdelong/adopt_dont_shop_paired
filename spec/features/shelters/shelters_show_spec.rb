@@ -62,7 +62,7 @@ RSpec.describe "As the user" do
 
     it "i can delete shelter using the delete button" do
 
-      click_on 'Delete'
+      click_on 'Delete Shelter'
       expect(current_path).to eq('/shelters')
 
       expect(page).to_not have_content('The Shelter')
