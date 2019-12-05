@@ -1,13 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "As a user" do
-<<<<<<< HEAD
-  describe "I see a link to add a new review for this shelter", type: :feature do
-=======
   describe "When I visit a shelter's show page, I see a link to add a new review for this shelter", type: :feature do
->>>>>>> 2cf968388cb162deb13b4aca8a504327a26fc4b0
     before :each do
-
       @phils_shelter = Shelter.create(
                                     name:     'The Best Shelter',
                                     address:  '1234 Address St.',
@@ -25,11 +20,7 @@ RSpec.describe "As a user" do
       visit "/shelters/#{@phils_shelter.id}"
     end
 
-<<<<<<< HEAD
-    it "I can click a link to be taken to a new review path" do
-=======
     it "I can click a link to be taken to a new review path, create new review without picture, and display flash message if required fields are missing input" do
->>>>>>> 2cf968388cb162deb13b4aca8a504327a26fc4b0
 
       click_on "New Review"
       expect(current_path).to eq("/shelters/#{@phils_shelter.id}/reviews/new")
@@ -47,8 +38,6 @@ RSpec.describe "As a user" do
       expect(page).to have_content(@review_1.content)
       expect(page).to have_content(@review_1.picture)
 
-<<<<<<< HEAD
-=======
       click_on 'New Review'
 
       fill_in 'Title', with: "Shelter Review new new"
@@ -72,7 +61,7 @@ RSpec.describe "As a user" do
 
       expect(current_path).to eq("/shelters/#{@phils_shelter.id}/reviews/new")
       expect(page).to have_content("Review not created - Please complete required fields")
->>>>>>> 2cf968388cb162deb13b4aca8a504327a26fc4b0
+
       end
     end
   end

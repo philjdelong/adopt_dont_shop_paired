@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
 
   def new
-<<<<<<< HEAD
-    @shelter = Shelter.find(paramsgit[:id])
+    @shelter = Shelter.find(params[:shelter_id])
   end
 
   def create
@@ -10,8 +9,6 @@ class ReviewsController < ApplicationController
     review = @shelter.reviews.new(reviews_params)
 
     redirect_to "/shelters/#{@shelter.id}"
-=======
-    @shelter = Shelter.find(params[:shelter_id])
   end
 
   def create
@@ -43,7 +40,6 @@ class ReviewsController < ApplicationController
       @shelter = params[:shelter_id]
       render :edit
     end
->>>>>>> 2cf968388cb162deb13b4aca8a504327a26fc4b0
   end
 
   private
