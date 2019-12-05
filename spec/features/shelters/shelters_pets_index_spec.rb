@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "As a user" do
-  describe "when i visit a shelters show pets", type: :feature do
+  describe "when i visit a shelters show page", type: :feature do
     before :each do
       @phils_shelter = Shelter.create(  name:     "Phil's Shelter",
                                         address:  "1234 Address St.",
