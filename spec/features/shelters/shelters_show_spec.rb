@@ -77,12 +77,12 @@ RSpec.describe "As the user" do
       expect(page).to have_content("Reviews:")
 
       expect(page).to have_content(@review_1.title)
-      expect(page).to have_content("#{@review_1.rating} Stars!")
+      expect(page).to have_content("#{@review_1.rating}/5 Stars!")
       expect(page).to have_content(@review_1.content)
       expect(page).to have_content(@review_1.picture)
 
       expect(page).to_not have_content(@review_2.title)
-      expect(page).to_not have_content("#{@review_2.rating} Stars!")
+      expect(page).to_not have_content("#{@review_2.rating}/5 Stars!")
       expect(page).to_not have_content(@review_2.content)
       expect(page).to_not have_content(@review_2.picture)
     end

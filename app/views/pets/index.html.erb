@@ -1,4 +1,10 @@
-<h1>Pets:</h1>
+<% if @shelter %>
+  <h1><%= link_to "#{@shelter.name}" %> Pets:</h1>
+  <br><br>
+    <h1><%= link_to "**New Pet**", "/shelters/#{@shelter.id}/pets/new" %></h1>
+<% else %>
+  <h1>All Available Pets:</h1>
+<% end %>
 
   <body>
     <% @pets.each do |pet| %>
@@ -17,7 +23,7 @@
           Adoption pending...
       <% end %></p>
       <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
-      <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %></h3>
+      <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
     <br><br>
   </body>
 <% end %>
