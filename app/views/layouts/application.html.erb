@@ -17,12 +17,17 @@
       <br>
       <%= link_to "All Pets", "/pets" %>
       <br><br>
-
     </header>
-       <% flash.each do |type, message| %>
-       <%= message %>
-     <% end %>
-    <%= yield %>
+
+    <nav>
+      <p>Favorites Count: <%= favorites.total_count %></p>
+    </nav>
+
+    <% flash.each do |type, message| %>
+      <%= message %>
+    <% end %>
+    
+      <%= yield %>
   </body>
 
 </html>
