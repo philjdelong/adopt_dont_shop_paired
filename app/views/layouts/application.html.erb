@@ -19,14 +19,15 @@
       <br><br>
     </header>
 
-    <nav>
-      <p>Favorites Count: <%= favorites.total_count %></p>
+    <nav id = 'nav'>
+      <%= link_to "Favorites Count (#{favorites.total_count})", '/favorites' %>
     </nav>
+
 
     <% flash.each do |type, message| %>
       <%= message %>
     <% end %>
-    
+
       <%= yield %>
   </body>
 

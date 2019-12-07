@@ -25,25 +25,25 @@ RSpec.describe "As a user" do
     end
 
     it "i can click a button to add pet to favorites" do
-      expect(page).to have_content("Favorites Count: 0")
+      expect(page).to have_content("Favorites Count (0)")
 
       click_on 'Favorite'
       expect(current_path).to eq("/pets/#{@charles.id}")
       expect(page).to have_content("#{@charles.name} has been added to Favorites!")
-      expect(page).to have_content("Favorites Count: 1")
+      expect(page).to have_content("Favorites Count (1)")
 
       click_on 'Favorite'
       expect(page).to have_content("#{@charles.name} has been added to Favorites!")
-      expect(page).to have_content("Favorites Count: 1")
+      expect(page).to have_content("Favorites Count (1)")
 
       visit "/pets/#{@fluffy.id}"
       click_on 'Favorite'
       expect(current_path).to eq("/pets/#{@fluffy.id}")
       expect(page).to have_content("#{@fluffy.name} has been added to Favorites!")
-      expect(page).to have_content("Favorites Count: 2")
+      expect(page).to have_content("Favorites Count (2)")
       click_on 'Favorite'
       expect(page).to have_content("#{@fluffy.name} has been added to Favorites!")
-      expect(page).to have_content("Favorites Count: 2")
+      expect(page).to have_content("Favorites Count (2)")
     end
   end
 end
