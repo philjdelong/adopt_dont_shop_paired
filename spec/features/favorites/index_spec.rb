@@ -31,7 +31,7 @@ RSpec.describe "As a user" do
                             shelter_id:   @courtneys_shelter.id
       )
 
-      @wilbur = Pet.create( image:        "https://www.sideshow.com/storage/product-images/903202/t-rex__feature.jpg",
+      @wilbur = Pet.create( image:        "No Image",
                             name:         "Wilbur",
                             age:          15,
                             sex:          "Male",
@@ -49,10 +49,13 @@ RSpec.describe "As a user" do
     it "i can see all favorited pets with name and image" do
 
       expect(page).to have_content(@charles.name)
-      expect(page).to have_image(@charles.image)
+      expect(page).to have_css("img[src*='#{@charles.image}']")
 
       expect(page).to have_content(@fluffy.name)
-      expect(page).to have_image(@fluffy.image)
+      expect(page).to have_css("img[src*='#{@fluffy.image}']")
+
+      expect(page).to_not have_content(@wilbur.name)
+      expect(page).to_not have_css("img[src*='#{@wilbur.image}']")
 
       click_link "#{@charles.name}"
       expect(current_path).to eq("/pets/#{@charles.id}")
