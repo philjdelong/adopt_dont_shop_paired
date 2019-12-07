@@ -18,6 +18,6 @@
     <% end %>
   </p>
 
-
+<%= button_to "Favorite", "/favorites/#{@pet.id}" %>
 <%= button_to "Edit Pet", "/pets/#{@pet.id}/edit" %>
 <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
