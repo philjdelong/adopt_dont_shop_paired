@@ -17,11 +17,11 @@
       <br>
       <%= link_to "All Pets", "/pets" %>
       <br><br>
+      <nav id = 'nav'>
+        <%= link_to "Favorites Count (#{favorites.total_count})", '/favorites' %>
+      </nav>
     </header>
 
-    <nav id = 'nav'>
-      <%= link_to "Favorites Count (#{favorites.total_count})", '/favorites' %>
-    </nav>
 
 
     <% flash.each do |type, message| %>
