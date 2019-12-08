@@ -1,7 +1,8 @@
 <% if @shelter %>
-  <h1><%= link_to "#{@shelter.name}" %> Pets:</h1>
+  <h1><%= link_to "#{@shelter.name}" %></h1> 
+  <h1>Pets:</h1>
   <br><br>
-    <h1><%= link_to "**New Pet**", "/shelters/#{@shelter.id}/pets/new" %></h1>
+    <h2><%= link_to "**New Pet**", "/shelters/#{@shelter.id}/pets/new" %></h2>
 <% else %>
   <h1>Pets:</h1>
 <% end %>

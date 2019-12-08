@@ -1,26 +1,20 @@
 <h1>Edit Pet:</h1>
 <p>(please complete all sections)
 
+<section>
+
 <%= form_tag "/pets/#{@pet.id}", method: :patch do %>
-  <%= label_tag :image %>
-  <br>
-  <%= text_field_tag :image %>
-  <br><br>
-  <%= label_tag :name %>
-  <br>
-  <%= text_field_tag :name %>
-  <br><br>
-  <%= label_tag :description %>
-  <br>
-  <%= text_field_tag :description %>
-  <br><br>
-  <%= label_tag :age %>
-  <br>
-  <%= text_field_tag :age %>
-  <br><br>
-  <%= label_tag :sex %>
-  <br>
-  <%= text_field_tag :sex %>
-  <br><br>
-  <%= submit_tag 'Make Changes' %>
+<h3><%= label_tag :image %>:  <%= text_field_tag :image %></h3>
+
+<h3><%= label_tag :name %>:  <%= text_field_tag :name %></h3>
+
+<h3><%= label_tag :description %>:  <%= text_field_tag :description %></h3>
+
+<h3><%= label_tag :age %>:  <%= text_field_tag :age %></h3>
+
+<h3><%= label_tag :sex %>:  <%= text_field_tag :sex %></h3>
+
+<h3><%= submit_tag 'Add Pet' %></h3>
 <% end %>
+
+</section>
