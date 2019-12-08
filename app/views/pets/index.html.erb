@@ -17,7 +17,7 @@
       <h3>Description: </h3>
          <p><%= pet.description %></p>
       <h3>Adoption Status: </h3>
-        <p><% if pet.status == true %>
+        <p><% if pet.adoptable == true %>
           Adoptable
         <% else %>
           Adoption pending...
