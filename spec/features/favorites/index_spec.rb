@@ -62,14 +62,3 @@ RSpec.describe "As a user" do
     end
   end
 end
-
-# User Story 10, Favorite Index Page
-#
-# As a visitor
-# When I have added pets to my favorites list
-# And I visit my favorites index page ("/favorites")
-# I see all pets I've favorited
-# Each pet in my favorites shows the following information:
-# - pet's name (link to pets show page)
-# - pet's image
-# ```
