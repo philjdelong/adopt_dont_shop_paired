@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20191204032123) do
 
   create_table "pets", force: :cascade do |t|
     t.string "image", default: "No Image"
-    t.string "name"
-    t.integer "age"
-    t.string "sex"
+    t.string "name", default: "Name Unknown"
+    t.integer "age", default: 0
+    t.string "sex", default: "Sex Unknown"
     t.bigint "shelter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
