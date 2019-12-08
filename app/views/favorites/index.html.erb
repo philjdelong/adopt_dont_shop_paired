@@ -1,10 +1,23 @@
 <h1>Favorites:</h1>
 
-  <% @pets.each do |pet| %>
-    <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
-    <img src=<%= pet.image %>>
+<main>
+  <% unless @pets.empty? %>
+    <% @pets.each do |pet| %>
+    <section>
+      <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
+      <img src=<%= pet.image %>>
 
-    <br>
       <br>
-      <%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %>
+        <br>
+        <%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %>
+     </section>
   <% end %>
+ <% else %>
+ <section>
+  <p>You have not favorited any pets. <br/>
+     Find a pet and click to add them to your favorites to see them here!</p>
+     <%= link_to "All Pets", "/pets" %>
+ <% end %>
+
+ </section>
+</main>
