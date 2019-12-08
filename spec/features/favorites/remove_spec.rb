@@ -47,12 +47,13 @@ RSpec.describe "As a user" do
     it "i can click a link to remove pet from favorites" do
 
       expect(page).to have_content("Favorites Count (2)")
-
+      
       click_on 'Remove Favorite'
       expect(current_path).to eq("/pets/#{@fluffy.id}")
 
-      expect(page).to have_button('Favorite')
       expect(page).to have_content("Favorites Count (1)")
+      expect(page).to have_button('Favorite')
+      expect(page).to_not have_button('Remove Favorite')
     end
 
   end
