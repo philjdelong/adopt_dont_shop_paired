@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
     session[:favorites] = favorites.favorite_pets
     flash[:notice] = "#{pet.name} has been added to Favorites!"
 
-    redirect_to "/pets/#{pet.id}"
+    redirect_to ("/pets/#{pet.id}")
   end
 
   def destroy
@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
     session[:favorites] = favorites.favorite_pets
     flash[:notice] = "#{pet.name} has been removed from Favorites!"
 
-    redirect_to "/pets/#{pet.id}"
+    redirect_back fallback_location: :back
   end
 
   def index
