@@ -18,6 +18,11 @@
     <% end %>
   </p>
 
-<%= button_to "Favorite", "/favorites/#{@pet.id}" %>
+<% if favorites.favorite_pets.include?((@pet.id).to_s) %>
+  <%= button_to "Remove Favorite", "/favorites/#{@pet.id}", method: :delete %>
+  <% else %>
+  <%= button_to "Favorite", "/favorites/#{@pet.id}" %>
+<% end %>
+<br><br>
 <%= button_to "Edit Pet", "/pets/#{@pet.id}/edit" %>
 <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
