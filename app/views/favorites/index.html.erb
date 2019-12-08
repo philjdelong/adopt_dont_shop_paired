@@ -1,5 +1,11 @@
 <h1>Favorites:</h1>
 
+<header>
+  <nav>
+    <%= link_to 'Remove All Favorited Pets', '/favorites', method: :delete %>
+  </nav>
+</header>
+
 <main>
   <% unless @pets.empty? %>
     <% @pets.each do |pet| %>

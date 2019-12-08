@@ -18,6 +18,14 @@ class FavoritesController < ApplicationController
     redirect_back fallback_location: :back
   end
 
+  def destroy_all
+    favorites.remove_all
+    session[:favorites] = favorites.favorite_pets
+    flash[:notice] = "Your favorited pets have been removed"
+
+    redirect_back fallback_location: :back
+  end
+
   def index
     @pets = favorites.favorite_pets.map do |pet|
       Pet.find(pet.first)
