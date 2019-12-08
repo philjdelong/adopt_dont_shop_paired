@@ -1,6 +1,10 @@
 <h1>Favorites:</h1>
 
-<% @pets.each do |pet| %>
-  <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
-  <img src=<%= pet.image %>>
-<% end %>
+  <% @pets.each do |pet| %>
+    <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
+    <img src=<%= pet.image %>>
+
+    <br>
+      <br>
+      <%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %>
+  <% end %>

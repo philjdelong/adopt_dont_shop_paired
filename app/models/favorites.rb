@@ -10,10 +10,10 @@ class Favorites
   end
 
   def add_pet(id)
-    @favorite_pets[id.to_s] = 1 #count_of(id)
+    @favorite_pets[id.to_s] = 1
   end
 
-  # def count_of(id)
-  #   @favorite_pets[id.to_s].to_i
-  # end
+  def remove_pet(id)
+    @favorite_pets.delete(id.to_s)
+  end
 end
