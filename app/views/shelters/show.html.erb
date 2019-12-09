@@ -26,7 +26,7 @@
 <section id="review-<%= review.id %>">
   <h3><%= review.title %></h3>
   <p><%= review.rating %>/5 Stars!
-  <%= review.content %>
+  <p><%= review.content %></p>
   <p><img src=<%= review.picture %>></p>
   <p><%= button_to "Edit Review", "/shelters/#{@shelter.id}/reviews/#{review.id}/edit", method: :get %>
   <%= button_to "Delete Review", "/shelters/#{@shelter.id}/reviews/#{review.id}", method: :delete %></p>
