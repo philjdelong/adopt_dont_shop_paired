@@ -1,26 +1,20 @@
 <h1>Edit Shelter:</h1>
 <p>(please complete all sections)
 
-<%= form_tag "/shelters/#{@shelter.id}", method: :patch do %>
-  <%= label_tag :name %>
-  <br>
-  <%= text_field_tag :name %>
-  <br><br>
-  <%= label_tag :address %>
-  <br>
-  <%= text_field_tag :address %>
-  <br><br>
-  <%= label_tag :city %>
-  <br>
-  <%= text_field_tag :city %>
-  <br><br>
-  <%= label_tag :state %>
-  <br>
-  <%= text_field_tag :state %>
-  <br><br>
-  <%= label_tag :zip %>
-  <br>
-  <%= text_field_tag :zip %>
-  <br><br>
-  <%= submit_tag 'Update' %>
-<% end %>
+<section>
+
+  <%= form_tag "/shelters/#{@shelter.id}", method: :patch do %>
+  <h3><%= label_tag :name %>:  <%= text_field_tag :name %></h3>
+
+  <h3><%= label_tag :address %>:  <%= text_field_tag :address %></h3>
+
+  <h3><%= label_tag :city %>:  <%= text_field_tag :city %></h3>
+
+  <h3><%= label_tag :state %>:  <%= text_field_tag :state %></h3>
+
+  <h3><%= label_tag :zip %>:  <%= text_field_tag :zip %></h3>
+
+  <h3><%= submit_tag 'Update' %></h3>
+  <% end %>
+
+</section>
