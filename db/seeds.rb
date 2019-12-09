@@ -38,3 +38,11 @@ review_2 = Review.create( title: "It's ok",
                           content: "I might recommend to a friend",
                           shelter_id: courtneys_shelter.id
 )
+new_application = Application.create(name: 'Travis',
+                                  address: '102 corn st',
+                                  city: 'denver',
+                                  state: 'co',
+                                  zip: '89060',
+                                  phone_number: 5551231414,
+                                  description: 'I make good home'
+)

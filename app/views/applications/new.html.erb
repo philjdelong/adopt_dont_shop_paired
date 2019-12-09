@@ -1,0 +1,25 @@
+<h1> New Adoption Application </h1>
+
+<h2>Select which favorited pet(s) you want to adopt</h2>
+   <%= form_tag '/favorites', method: :post do %>
+     <% @pets.each do |favorite_pet| %>
+       <%= label_tag favorite_pet.id, favorite_pet.name %>
+       <%= check_box_tag 'favorite_pet_ids[]', favorite_pet.id, false, :id => "checkbox-#{favorite_pet.id}" %>
+     <% end %>
+     <%= label_tag :name %>
+     <%= text_field_tag :name %><br/>
+     <%= label_tag :address %>
+     <%= text_field_tag :address %><br/>
+     <%= label_tag :city %>
+     <%= text_field_tag :city %><br/>
+     <%= label_tag :state %>
+     <%= text_field_tag :state %><br/>
+     <%= label_tag :zip %>
+     <%= text_field_tag :zip %>
+     <%= label_tag :phone_number, 'Phone Number' %>
+     <%= text_field_tag :phone_number %>
+     <%= label_tag :description, 'Why would you be a good home for the pet(s) you want to adopt?' %>
+     <%= text_area_tag :description %>
+     <%= label_tag :submit, "" %>
+     <%= submit_tag 'Submit' %>
+   <% end %>
