@@ -15,7 +15,6 @@ RSpec.describe "As a user" do
                               age:          12,
                               sex:          "female",
                               shelter_id:   @phils_shelter.id,
-                              status:       "Adoptable!"
       )
       visit("/pets/#{@fluffy.id}")
     end
