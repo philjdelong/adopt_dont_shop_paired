@@ -13,6 +13,12 @@ class Favorites
     @favorite_pets[id.to_s] = 1
   end
 
+  def remove_type(group)
+    @favorite_pets = group.each do |id|
+      remove_pet(id)
+    end
+  end
+
   def remove_pet(id)
     @favorite_pets.delete(id.to_s)
   end
