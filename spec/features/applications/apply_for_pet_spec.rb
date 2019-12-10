@@ -36,13 +36,17 @@ RSpec.describe "As a visitor" do
       click_on 'Favorite'
       visit "/pets/#{@fluffy.id}"
       click_on 'Favorite'
+    end
 
+    it "i can click link to start a new applicaiton" do
       visit "/favorites"
+
       click_link('New Application')
       expect(current_path).to eq('/favorites/applications/new')
 
       find("#checkbox-#{@charles.id}").set(true)
       expect(page).to_not have_css("#checkbox-#{@buster.id}")
+
       fill_in "Name", with: "Big Philly"
       fill_in "Address", with: "17th st"
       fill_in "City", with: "Pottersville"
@@ -50,11 +54,13 @@ RSpec.describe "As a visitor" do
       fill_in "Zip", with: "80602"
       fill_in "Phone Number", with: "5556789191"
       fill_in "Why would you be a good home for the pet(s) you want to adopt?", with: "ipsum dolar hello?"
+
       click_button 'Submit'
       expect(current_path).to eq("/favorites")
-      expect(page).to have_content("Your application has been submitted successfully!")
-      expect(page).not_to have_content(@charles.name)
+
+      expect(page).to have_content("Your application has been sent!")
       expect(page).to have_content(@fluffy.name)
+      expect(page).to_not have_content(@charles.name)
     end
   end
 end
