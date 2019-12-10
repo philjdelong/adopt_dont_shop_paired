@@ -36,14 +36,11 @@ RSpec.describe "As a visitor" do
       click_on 'Favorite'
       visit "/pets/#{@fluffy.id}"
       click_on 'Favorite'
-    end
-    it "i can click link to fill out adoption form" do
+
       visit "/favorites"
       click_link('New Application')
       expect(current_path).to eq('/favorites/applications/new')
-    end
-    it "i see a flash message and applied pets are not listed" do
-      visit "/favorites/applications/new"
+
       find("#checkbox-#{@charles.id}").set(true)
       expect(page).to_not have_css("#checkbox-#{@buster.id}")
       fill_in "Name", with: "Big Philly"
