@@ -4,11 +4,13 @@
   <p>Application to Adopt Pet(s): <%= link_to "New Application", "favorites/applications/new" %><p>
     <br>
     <% @pets.each do |pet| %>
-      <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
-      <img src=<%= pet.image %>>
-      <br>
+      <% unless pet.adoption_status == false  %>
+        <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
+        <img src=<%= pet.image %>>
         <br>
-      <p><%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %><p>
+          <br>
+        <p><%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %><p>
+      <% end %>
     <% end %>
   <% else %>
     <p>You have not favorited any pets. <br/>

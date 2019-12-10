@@ -4,7 +4,7 @@
    <%= form_tag '/favorites', method: :post do %>
      <% @pets.each do |favorite_pet| %>
        <%= label_tag favorite_pet.id, favorite_pet.name %>
-       <%= check_box_tag 'favorite_pet_ids[]', favorite_pet.id, false, :id => "checkbox-#{favorite_pet.id}" %>
+       <%= check_box_tag 'apply_for[]', favorite_pet.id, false, :id => "checkbox-#{favorite_pet.id}" %>
      <% end %>
      <%= label_tag :name %>
      <%= text_field_tag :name %><br/>
