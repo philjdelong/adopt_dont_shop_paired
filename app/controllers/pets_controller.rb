@@ -40,6 +40,18 @@ class PetsController < ApplicationController
     redirect_to '/pets'
   end
 
+  def change_adoption_status
+    pet = Pet.find(params[:id])
+      if pet.adoption_status == "adoptable"
+        status = "pending"
+      else
+        status = "adoptable"
+      end
+    pet.update({adoption_status: status})
+    pet.save
+    redirect_to "/pets/#{pet.id}"
+  end
+
   private
 
     def pet_params

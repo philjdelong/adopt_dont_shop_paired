@@ -1,5 +1,11 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @pets = favorites.favorite_pets.map do |pet|
+      Pet.find(pet.first)
+    end
+  end
+
   def update
     pet = Pet.find(params[:pet_id])
     favorites.add_pet(pet.id)
@@ -20,11 +26,5 @@ class FavoritesController < ApplicationController
     end
     session[:favorites] = favorites.favorite_pets
     redirect_back fallback_location: :back
-  end
-
-  def index
-    @pets = favorites.favorite_pets.map do |pet|
-      Pet.find(pet.first)
-    end
   end
 end

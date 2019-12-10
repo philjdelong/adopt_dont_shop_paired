@@ -11,7 +11,7 @@
   <p><%= @pet.sex %></p>
 
 <h2>Adoption Status: </h2>
-  <p><% if @pet.adoptable == true %>
+  <p><% if @pet.adoption_status == "adoptable" %>
     Adoptable
     <% else %>
     Adoption pending...

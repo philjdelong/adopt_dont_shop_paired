@@ -14,7 +14,7 @@ RSpec.describe "As a user" do
     end
 
     it "i can add a new shelter pet" do
-      
+
       fill_in 'Image', with: "https://i1.wp.com/dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/291/2019/06/21124954/Praying-mantis.jpg?ssl=1"
       fill_in 'Name', with: "Zeke"
       fill_in 'Description', with: "He may look paranoid, and he is!"

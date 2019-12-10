@@ -24,12 +24,6 @@ RSpec.describe Application, type: :model do
                                       state:    "CO",
                                       zip:      "80202"
       )
-      charles = Pet.create( image:       "https://timesofindia.indiatimes.com/thumb/msid-67586673,width-800,height-600,resizemode-4/67586673.jpg",
-                            name:        "Charles",
-                            age:         5,
-                            sex:         "Male",
-                            shelter_id:  phils_shelter.id
-      )
       new_application = Application.create(name: 'Travis',
                                         address: '102 corn st',
                                         city: 'denver',
@@ -38,7 +32,24 @@ RSpec.describe Application, type: :model do
                                         phone_number: 5551231414,
                                         description: 'I make good home'
       )
-      binding.pry
+      charles = Pet.create( image:       "https://timesofindia.indiatimes.com/thumb/msid-67586673,width-800,height-600,resizemode-4/67586673.jpg",
+                            name:        "Charles",
+                            age:         5,
+                            sex:         "Male",
+                            shelter_id:  phils_shelter.id
+      )
+      fluffy = Pet.create(  image:        "https://www.sideshow.com/storage/product-images/903202/t-rex__feature.jpg",
+                            name:         "Fluffy",
+                            age:          12,
+                            sex:          "Female",
+                            shelter_id:   phils_shelter.id
+      )
+      pets = [charles, fluffy]
+
+      new_application.update_adoption_status(pets)
+
+      expect(charles.adoption_status).to eq("pending")
+      expect(fluffy.adoption_status).to eq("pending")
     end
   end
 end

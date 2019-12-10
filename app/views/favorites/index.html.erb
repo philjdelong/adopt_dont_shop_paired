@@ -1,6 +1,6 @@
 <h1>Favorites:</h1>
 <main>
-  <% unless @pets.empty? %>
+  <% unless @pets.length == 0 %>
   <p>Application to Adopt Pet(s): <%= link_to "New Application", "favorites/applications/new" %><p>
     <br>
     <% @pets.each do |pet| %>
