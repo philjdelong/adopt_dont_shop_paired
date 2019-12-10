@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191204032123) do
+ActiveRecord::Schema.define(version: 20191210115900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.bigint "phone_number"
+    t.string "description"
+  end
 
   create_table "pets", force: :cascade do |t|
     t.string "image", default: "No Image"
@@ -24,8 +34,15 @@ ActiveRecord::Schema.define(version: 20191204032123) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description", default: "No Description"
-    t.boolean "adoptable", default: true
+    t.string "adoption_status", default: "adoptable"
     t.index ["shelter_id"], name: "index_pets_on_shelter_id"
+  end
+
+  create_table "pets_applications", force: :cascade do |t|
+    t.bigint "pet_id"
+    t.bigint "application_id"
+    t.index ["application_id"], name: "index_pets_applications_on_application_id"
+    t.index ["pet_id"], name: "index_pets_applications_on_pet_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -50,5 +67,7 @@ ActiveRecord::Schema.define(version: 20191204032123) do
   end
 
   add_foreign_key "pets", "shelters"
+  add_foreign_key "pets_applications", "applications"
+  add_foreign_key "pets_applications", "pets"
   add_foreign_key "reviews", "shelters"
 end

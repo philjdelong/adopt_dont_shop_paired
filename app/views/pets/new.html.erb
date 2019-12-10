@@ -3,7 +3,7 @@
 <section>
 
 <%= form_tag "/shelters/#{@shelter.id}/pets", method: :post do %>
-  <h3><%= label_tag :image %>:  <%= text_field_tag :image %></h3>
+  <h3><%= label_tag :image %>:  <%= text_field_tag :image, "Empty" %></h3>
 
   <h3><%= label_tag :name %>:  <%= text_field_tag :name %></h3>
 
