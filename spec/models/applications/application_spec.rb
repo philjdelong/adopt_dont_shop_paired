@@ -12,8 +12,8 @@ RSpec.describe Application, type: :model do
   end
 
   describe "relationships" do
-    it {have_many :pet}
-    it {have_many :application}
+    it {should have_many :pets_applications}
+    it {should have_many :pets}
   end
 
   describe 'methods' do
@@ -48,8 +48,8 @@ RSpec.describe Application, type: :model do
 
       new_application.update_adoption_status(pets)
 
-      expect(charles.adoption_status).to eq("pending")
-      expect(fluffy.adoption_status).to eq("pending")
+      expect(charles.adoption_status).to eq("Adoption Pending")
+      expect(fluffy.adoption_status).to eq("Adoption Pending")
     end
   end
 end
