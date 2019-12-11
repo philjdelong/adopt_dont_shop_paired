@@ -64,7 +64,10 @@ RSpec.describe "As a visitor" do
 
       expect(page).to have_content("Your application has been sent!")
       expect(page).to have_content(@fluffy.name)
-      expect(page).to_not have_content(@charles.name)
+
+      within '#section' do
+        expect(page).to_not have_content(@charles.name)
+      end
     end
 
     it "if application unsuccessful i see an unsuccessful flash message and im returned to the application" do

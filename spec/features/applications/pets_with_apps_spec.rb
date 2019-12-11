@@ -45,11 +45,13 @@ RSpec.describe "As a user" do
       )
 
       @new_application.pets << [@charles, @fluffy]
-      
+
       visit '/favorites'
     end
 
     it "i can see a list of all pets that have applications" do
+      expect(page).to have_content("You have pending applications for the following pets:")
+
       expect(page).to have_content(@fluffy.name)
       expect(page).to have_content(@charles.name)
 

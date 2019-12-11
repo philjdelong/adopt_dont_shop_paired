@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
     @pets = favorites.favorite_pets.map do |pet|
       Pet.find(pet.first)
     end
+    @applied_pets = Pet.select('pets.name, pets.id').joins(:applications)
   end
 
   def update

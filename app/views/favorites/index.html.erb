@@ -3,6 +3,7 @@
   <% unless @pets.length == 0 %>
   <p>Application to Adopt Pet(s): <%= link_to "New Application", "favorites/applications/new" %><p>
     <br>
+    <section id = 'section'>
     <% @pets.each do |pet| %>
       <% unless pet.adoption_status == false  %>
         <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
@@ -11,11 +12,21 @@
           <br>
         <p><%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %><p>
       <% end %>
+    </section>
     <% end %>
   <% else %>
-    <p>You have not favorited any pets. <br/>
+    <p>You have not favorited any pets.
        Find a pet and click to add them to your favorites to see them here!</p>
-    <p><%= link_to "All Pets", "/pets" %><p>
- <% end %>
- <h3><%= link_to 'Remove All Favorited Pets', '/favorites', method: :delete %></h3>
+    <p><%= link_to "All Pets", "/pets" %></p>
+  <% end %>
+  <br>
+  <h3><%= link_to 'Remove All Favorited Pets', '/favorites', method: :delete %></h3>
+
+
+
+  <p>You have pending applications for the following pets:</p>
+  <% @applied_pets.each do |app_pet| %>
+    <h2><%= link_to "#{app_pet.name}", "/pets/#{app_pet.id}" %></h2>
+  <% end %>
+
 </main>
