@@ -13,18 +13,11 @@ validates_presence_of :name,
 
   def update_adoption_status(pets)
     pets.each do |pet|
-      if pet.adoption_status == "adoptable"
-        status = "pending"
-      else
-        status = "adoptable"
+      if pet.adoption_status != true
+        status = "Adoption Pending"
       end
       pet.update({adoption_status: status})
       pet.save
     end
   end
-
-  def remove_all_favorite_pets(id)
-
-  end
-
 end

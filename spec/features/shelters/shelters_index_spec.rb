@@ -5,10 +5,10 @@ RSpec.describe "As the user" do
     before :each do
 
       @phils_shelter = Shelter.create(  name:     'The Best Shelter',
-                                    address:  '1234 Address St.',
-                                    city:     'Denver',
-                                    state:    'CO',
-                                    zip:      '80202'
+                                        address:  '1234 Address St.',
+                                        city:     'Denver',
+                                        state:    'CO',
+                                        zip:      '80202'
                                   )
       visit "/shelters"
     end
