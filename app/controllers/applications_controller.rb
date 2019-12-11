@@ -16,7 +16,7 @@ class ApplicationsController < ApplicationController
       flash[:success] = "Your application has been sent!"
       redirect_to "/favorites"
     else
-      flash.now[:error] = 'Application not submitted. Please complete required fields.'
+      flash.now[:error] = 'Application not submitted. Please complete all required fields.'
       @pets = Pet.find(favorites.favorite_pets.keys)
       render :new
     end

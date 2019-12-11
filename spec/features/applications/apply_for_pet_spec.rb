@@ -43,6 +43,10 @@ RSpec.describe "As a visitor" do
 
       click_link('New Application')
       expect(current_path).to eq('/favorites/applications/new')
+    end
+
+    it "after applying i see a successful flash message and applied pets are gone" do
+      visit "/favorites/applications/new"
 
       find("#checkbox-#{@charles.id}").set(true)
       expect(page).to_not have_css("#checkbox-#{@buster.id}")
@@ -61,6 +65,13 @@ RSpec.describe "As a visitor" do
       expect(page).to have_content("Your application has been sent!")
       expect(page).to have_content(@fluffy.name)
       expect(page).to_not have_content(@charles.name)
+    end
+
+    it "if application unsuccessful i see an unsuccessful flash message and im returned to the application" do
+      visit "/favorites/applications/new"
+
+      click_button 'Submit'
+      expect(page).to have_content("Application not submitted. Please complete all required fields.")
     end
   end
 end

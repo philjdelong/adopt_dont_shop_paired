@@ -45,6 +45,7 @@ RSpec.describe Application, type: :model do
                             shelter_id:   phils_shelter.id
       )
       pets = [charles, fluffy]
+      expect(fluffy.adoption_status).to eq("adoptable")
 
       new_application.update_adoption_status(pets)
 
