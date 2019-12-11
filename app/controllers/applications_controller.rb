@@ -1,5 +1,9 @@
 class ApplicationsController < ApplicationController
 
+  def show
+    @application = Application.find(params[:id])
+  end
+
   def new
     @pets = Pet.find(favorites.favorite_pets.keys)
   end
