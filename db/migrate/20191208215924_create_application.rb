@@ -8,6 +8,8 @@ class CreateApplications < ActiveRecord::Migration[5.1]
       t.string :zip
       t.bigint :phone_number
       t.string :description
+
+      t.timestamps
     end
   end
 end
