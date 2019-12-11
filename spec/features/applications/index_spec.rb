@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "As a user" do
-  describe "when i visit the favorites page", type: :feature do
+  describe "when i visit an applications show page", type: :feature do
     before :each do
       @new_application = Application.create(
         name: 'Travis',
@@ -37,30 +37,29 @@ RSpec.describe "As a user" do
         shelter_id:  @phils_shelter.id
       )
 
-      @fluffy = Pet.create(  image:        "https://www.sideshow.com/storage/product-images/903202/t-rex__feature.jpg",
-                            name:         "Fluffy",
-                            age:          12,
-                            sex:          "Female",
-                            shelter_id:   @courtneys_shelter.id
+      @fluffy = Pet.create(
+        image:        "https://www.sideshow.com/storage/product-images/903202/t-rex__feature.jpg",
+        name:         "Fluffy",
+        age:          12,
+        sex:          "Female",
+        shelter_id:   @courtneys_shelter.id
       )
 
       @new_application.pets << [@charles, @fluffy]
-
-      visit '/favorites'
+      visit "/applications/#{@new_application.id}"
     end
 
-    it "i can see a list of all pets that have applications" do
-      expect(page).to have_content("You have pending applications for the following pets:")
+    it "i can see all attributes and names of pets applied for" do
+      expect(page).to have_content(@new_application.name)
+      expect(page).to have_content(@new_application.address)
+      expect(page).to have_content(@new_application.city)
+      expect(page).to have_content(@new_application.state)
+      expect(page).to have_content(@new_application.zip)
+      expect(page).to have_content(@new_application.phone_number)
+      expect(page).to have_content(@new_application.description)
 
-      expect(page).to have_content(@fluffy.name)
-      expect(page).to have_content(@charles.name)
-
-    end
-
-    it "i can click on each applied pets name and be taken to their show page" do
-      visit '/favorites'
-
-      click_on "#{@fluffy.name}"
+      expect(page).to have_link(@charles.name)
+      click_link(@fluffy.name)
       expect(current_path).to eq("/pets/#{@fluffy.id}")
     end
   end
