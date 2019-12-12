@@ -7,11 +7,14 @@
   <p><%= @application.zip %></p>
   <p><%= @application.phone_number %></p>
   <p><%= @application.description %></p>
-  <br><br>
+    <br><br>
   <h2>Pets applied for:</h2>
-  <% @applied_pets.each do |pet| %>
-  <section id = "pet-<%= pet.id %>">
-    <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
-    <p><%= button_to 'Approve', "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %></p>
-  </section>
+
+  <% @applied_pets.each do |app_pet| %>
+    <section id = "pet-<%= app_pet.id %>">
+      <h3><%= link_to "#{app_pet.name}", "/pets/#{app_pet.id}" %></h3>
+      <% if app_pet.adoption_status != "Adoption Pending..." %>
+        <p><%= button_to 'Approve', "/applications/#{@application.id}/pets/#{app_pet.id}", method: :patch %></p>
+      <% end %>
+    </section>
   <% end %>
