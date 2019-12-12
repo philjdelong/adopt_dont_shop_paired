@@ -47,7 +47,7 @@ RSpec.describe "As a user" do
         description: 'I make good home'
       )
 
-      @new_application.pets << [@charles, @fluffy]
+      @new_application.pets << [@charles]
 
       visit "/applications/#{@new_application.id}"
     end
