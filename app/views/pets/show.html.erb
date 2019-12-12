@@ -17,9 +17,9 @@
     <p><%= @pet.adoption_status %>
     Pet is on hold for: </p>
       <% @pet.applications.each do |application| %>
-        <h3><%= application.name %></h3>
-      <% end %>
+      <h3><%= link_to "#{application.name}", "/applications/#{application.id}" %></h3>
     <% end %>
+  <% end %>
 
 
 <% if favorites.favorite_pets.include?((@pet.id).to_s) %>
@@ -30,6 +30,6 @@
 <br><br>
 <%= button_to "Edit Pet", "/pets/#{@pet.id}/edit" %>
 <% if @pet.adoption_status == "Adoptable" %>
-<%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+  <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
 <% end %>
 <%= link_to "View applications for this pet", "/pets/#{@pet.id}/applications" %>
