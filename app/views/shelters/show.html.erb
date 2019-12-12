@@ -1,6 +1,8 @@
 <br>
 <%= button_to "Edit Shelter", "/shelters/#{@shelter.id}/edit" %>
+<% if @pending == 0 %>
 <%= button_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+<% end %>
 <h1><%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %>:</h1>
 
 <h2>Address:</h2>

@@ -36,4 +36,18 @@ class Shelter < ApplicationRecord
     x
   end
 
+  # def index_pending
+  #   pets.where(adoption_status: "Adoption Pending...").none?
+  # end 
+
+  def pending_pets
+    pending = 0
+    pets.each do |pet|
+      if pet.adoption_status == "Adoption Pending..."
+        pending += 1
+      end
+    end
+    pending
+  end
+
 end
