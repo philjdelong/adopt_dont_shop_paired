@@ -70,9 +70,8 @@ RSpec.describe "As a user" do
         expect(current_path).to eq("/pets/#{@fluffy.id}")
       end
 
-        expect(page).to have_content('Adoption Pending...')
-        expect(page).to have_content("#{@new_application.name}")
-
+      expect(page).to have_content('Adoption Pending...')
+      expect(page).to have_content("#{@new_application.name}")
     end
   end
 end
