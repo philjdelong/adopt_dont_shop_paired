@@ -65,7 +65,7 @@ RSpec.describe "As the user" do
       click_on 'Delete Shelter'
       expect(current_path).to eq('/shelters')
 
-      expect(page).to_not have_content('The Shelter')
+      expect(page).to_not have_content(@shelter_1.name)
     end
 
     it "i can click a link to visit shelters pets index" do
@@ -91,6 +91,12 @@ RSpec.describe "As the user" do
 
       click_on 'New Review'
       expect(current_path).to eq("/shelters/#{@shelter_1.id}/reviews/new")
+    end
+
+    it "i can see all stats for the shelter" do
+      expect(page).to have_content(@shelter_1.total_pet_count)
+      expect(page).to have_content(@shelter_1.total_app_count)
+      expect(page).to have_content(@shelter_1.avg_rating)
     end
   end
 end

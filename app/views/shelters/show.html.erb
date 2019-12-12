@@ -35,3 +35,8 @@
   <br>
     <br>
 <p><%= link_to "New Review", "/shelters/#{@shelter.id}/reviews/new" %></p>
+
+<h1>Stats:</h1>
+<p><%= @shelter.total_pet_count %></p>
+<p><%= @shelter.total_app_count %></p>
+<p><%= @shelter.avg_rating %></p>

@@ -11,16 +11,16 @@
   <p><%= @pet.sex %></p>
 
 <h2>Adoption Status: </h2>
-  <p><% if @pet.adoption_status == "Adoptable" %>
-    <%= @pet.adoption_status %>
-    <% else %>
-    Adoption Pending...
-    Pet is on hold for:
+  <% if @pet.adoption_status == "Adoptable" %>
+    <p><%= @pet.adoption_status %></p>
+  <% else %>
+    <p><%= @pet.adoption_status %>
+    Pet is on hold for: </p>
       <% @pet.applications.each do |application| %>
-        <%= application.name %>
+        <h3><%= application.name %></h3>
       <% end %>
     <% end %>
-  </p>
+
 
 <% if favorites.favorite_pets.include?((@pet.id).to_s) %>
   <%= button_to "Remove Favorite", "/favorites/#{@pet.id}", method: :delete %>

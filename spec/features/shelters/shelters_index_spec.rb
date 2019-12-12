@@ -35,8 +35,6 @@ RSpec.describe "As the user" do
     it "i can click on each shelter name and link takes me to shelter show page" do
       click_on "#{@phils_shelter.name}"
       expect(current_path).to eq("/shelters/#{@phils_shelter.id}")
-      click_on "#{@phils_shelter.name}"
-      expect(current_path).to eq("/shelters/#{@phils_shelter.id}")
     end
   end
 end
