@@ -45,7 +45,7 @@ RSpec.describe "As a user" do
         shelter_id:   @courtneys_shelter.id
       )
 
-      @new_application.pets << [@charles, @fluffy]
+      @new_application.pets << [@fluffy]
       visit "/applications/#{@new_application.id}"
 
       within "#pet-#{@fluffy.id}" do
@@ -60,24 +60,26 @@ RSpec.describe "As a user" do
     it 'When visiting application show page, can no longer see approved button, instead see revoke button' do
 
       within "#pet-#{@fluffy.id}" do
-        expect(page).not_to have_link('Approve')
+        expect(page).not_to have_button('Approve')
       end
 
       within "#pet-#{@fluffy.id}" do
-        expect(page).to have_link('Revoke')
+        expect(page).to have_button('Revoke Application')
       end
-
     end
 
     it 'When revoke button is clicked, I am taken back to application show page where approved button is shown again, and pets show page shows pet as adoptable' do
 
       within "#pet-#{@fluffy.id}" do
-        click_on "Revoke"
-        expect(current_path).to eq("/applications/#{@new_application.id}")
+        click_on "Revoke Application"
       end
-      
+      expect(current_path).to eq("/pets/#{@fluffy.id}")
+
+
+      visit "/applications/#{@new_application.id}"
+
       within "#pet-#{@fluffy.id}" do
-        expect(page).to have_link('Approve')
+        expect(page).to have_button('Approve')
       end
 
       visit "/pets/#{@fluffy.id}"
