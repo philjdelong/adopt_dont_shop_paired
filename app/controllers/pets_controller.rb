@@ -36,13 +36,15 @@ class PetsController < ApplicationController
           pet[:adoption_status] = "Adoption Pending..."
         elsif pet.adoption_status == "Adoption Pending..."
           pet[:adoption_status] = "Adoptable"
-        end 
+        end
       end
     pet.update(pet_params)
     redirect_to "/pets/#{pet.id}"
   end
 
   def destroy
+    favorites.remove_pet(params[:id])
+    session[:favorites] = favorites.favorite_pets
     pet = Pet.destroy(params[:id])
     redirect_to '/pets'
   end
