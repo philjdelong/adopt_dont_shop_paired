@@ -36,7 +36,7 @@ review_1 = Review.create( title: "Love it!",
 review_2 = Review.create( title: "It's ok",
                           rating: 2,
                           content: "I might recommend to a friend",
-                          shelter_id: courtneys_shelter.id
+                          shelter_id: phils_shelter.id
 )
 new_application = Application.create(name: 'Travis',
                                   address: '102 corn st',
