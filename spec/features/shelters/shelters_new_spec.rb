@@ -21,6 +21,18 @@ RSpec.describe "As a user" do
 
         expect(page).to have_content("Phil's Spot")
       end
+
+      it "i can see a message to complete all fields if not properly submitted" do
+        visit '/shelters'
+
+        click_on "New Shelter"
+        expect(current_path).to eq('/shelters/new')
+
+        click_button 'Create'
+
+        expect(page).to have_content("please complete all fields")
+
+      end
     end
   end
 end
