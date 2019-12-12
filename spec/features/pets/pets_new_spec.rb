@@ -31,5 +31,11 @@ RSpec.describe "As a user" do
       expect(page).to have_content("male")
       expect(page).to have_content("Adoptable")
     end
+
+    it "if i do not complete all fields i see a flash message indicating so" do
+      click_on "Add Pet"
+
+      expect(page).to have_content("please complete all fields")
+    end
   end
 end

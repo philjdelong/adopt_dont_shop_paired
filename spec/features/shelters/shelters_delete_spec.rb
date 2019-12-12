@@ -43,6 +43,7 @@ RSpec.describe "As a user" do
       visit "/shelters/#{@phils_shelter.id}"
 
       click_on "Delete Shelter"
+      
       expect(current_path).to eq("/shelters")
 
       expect(page).to_not have_content("#{@phils_shelter.name}")

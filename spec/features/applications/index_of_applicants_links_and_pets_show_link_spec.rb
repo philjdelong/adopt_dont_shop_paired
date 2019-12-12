@@ -85,5 +85,14 @@ RSpec.describe 'As a visitor', type: :feature do
 
       expect(page).to have_content("No applications for this pet")
     end
+
+    it "all applicants name are links on the site" do
+      visit "/pets/#{@charles.id}/applications"
+      expect(page).to have_link("#{@new_application.name}")
+
+      visit "/applications/#{@new_application.id}"
+      expect(page).to have_link("#{@new_application.name}")
+
+    end
   end
 end

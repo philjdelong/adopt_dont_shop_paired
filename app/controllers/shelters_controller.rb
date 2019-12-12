@@ -15,8 +15,13 @@ class SheltersController < ApplicationController
   end
 
   def create
-    Shelter.create(shelter_params)
-    redirect_to '/shelters'
+    shelter = Shelter.create(shelter_params)
+    if shelter.save
+      redirect_to '/shelters'
+    else
+      flash[:notice] = "(please complete all fields)"
+      render :new
+    end
   end
 
   def edit
@@ -31,6 +36,15 @@ class SheltersController < ApplicationController
 
   def destroy
     Review.delete(Review.where(shelter_id: params[:id]))
+    # pet = Pet.find(params[:id])
+    #   if pet.adoption_status == "Adoption Pending..."
+    #     flash[:notice] = "Cannot delete pets with pending applications"
+    #   else
+    #     PetsApplication.delete(Pet.where(shelter_id: params[:id]))
+    #     pet.delete
+    #     Shelter.destroy(params[:id])
+    #   end
+    PetsApplication.delete(Pet.where(shelter_id: params[:id]))
     Pet.delete(Pet.where(shelter_id: params[:id]))
     Shelter.destroy(params[:id])
     redirect_to '/shelters'

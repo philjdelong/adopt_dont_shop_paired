@@ -31,7 +31,7 @@ RSpec.describe "As a user" do
 
         visit "/shelters/#{@phils_shelter.id}/pets"
         click_on 'New Pet'
-        
+
         expect(current_path).to eq("/shelters/#{@phils_shelter.id}/pets/new")
       end
     end
@@ -49,8 +49,17 @@ RSpec.describe "As a user" do
     end
 
     it "i click pets name and see pets show page" do
+      visit "/pets"
       click_on "#{@charles.name}"
       expect(current_path).to eq("/pets/#{@charles.id}")
+
+      visit "/pets/#{@charles.id}"
+
+      click_on "Favorite"
+      click_on "#{@charles.name}"
+      expect(current_path).to eq("/pets/#{@charles.id}")
+
+      visit "/favorites"
       click_on "#{@charles.name}"
       expect(current_path).to eq("/pets/#{@charles.id}")
     end
