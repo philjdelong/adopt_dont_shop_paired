@@ -5,7 +5,7 @@
     <br>
     <section id = 'section'>
     <% @pets.each do |pet| %>
-      <% unless pet.adoption_status == false  %>
+      <% unless pet.adoption_status == "Adoption Pending..."  %>
         <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
         <img src=<%= pet.image %>>
         <br>
