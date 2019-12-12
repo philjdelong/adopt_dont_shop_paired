@@ -62,5 +62,16 @@ RSpec.describe "As a user" do
       click_link(@fluffy.name)
       expect(current_path).to eq("/pets/#{@fluffy.id}")
     end
+
+    it "i can click a link to approve a pet to be adopted" do
+
+      within "#pet-#{@fluffy.id}" do
+        click_on "Approve"
+        expect(current_path).to eq("/pets/#{@fluffy.id}")
+      end
+
+      expect(page).to have_content('Adoption Pending...')
+      expect(page).to have_content("#{@new_application.name}")
+    end
   end
 end

@@ -8,4 +8,9 @@ class Pet < ApplicationRecord
                         :age,
                         :description,
                         :sex
+
+  def update_adoption_status
+    pet[:adoption_status] = "Adoption Pending..."
+    pet.save
+  end
 end
