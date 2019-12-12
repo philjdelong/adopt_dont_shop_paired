@@ -8,6 +8,7 @@ class SheltersController < ApplicationController
     @shelter = Shelter.find(params[:id])
     @pets = @shelter.pets
     @reviews = @shelter.reviews
+    @pending = @shelter.pending_pets
   end
 
   def new

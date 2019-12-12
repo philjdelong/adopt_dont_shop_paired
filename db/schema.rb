@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191210080426) do
+ActiveRecord::Schema.define(version: 20191212114108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20191210080426) do
   end
 
   create_table "pets", force: :cascade do |t|
-    t.string "image", default: "No Image"
+    t.string "image", default: "https://cdn0.wideopenpets.com/wp-content/uploads/2018/01/Im-a-doggo-770x405.jpg"
     t.string "name", default: "Name Unknown"
     t.integer "age", default: 0
     t.string "sex", default: "Sex Unknown"
