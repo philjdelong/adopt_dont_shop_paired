@@ -1,4 +1,4 @@
-<h1>New Pet for: <%= @shelter.name %></h1>
+<h1>New Pet for: <%= link_to "#{@shelter.name}", "/shelters/#{@shelter.id}" %></h1>
 
 <section>
 
