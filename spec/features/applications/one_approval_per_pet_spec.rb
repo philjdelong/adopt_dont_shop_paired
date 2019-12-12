@@ -53,17 +53,11 @@ RSpec.describe "As a user" do
     end
 
     it "i cannot approve a pet with pending adoption" do
-      @charles.adoption_status = "Adoption Pending..."
 
-      within "#pet-#{@charles.id}" do
-        expect(@charles.adoption_status).to eq("Adoption Pending...")
-        # require "pry"; binding.pry
-        expect(page).to_not have_button("Approve")
-      end
+      click_on "Approve"
 
-      within "#pet-#{@fluffy.id}" do
-        expect(page).to have_button("Approve")
-      end
+      visit "/applications/#{@new_application.id}"
+      expect(page).to_not have_button("Approve")
     end
   end
 end

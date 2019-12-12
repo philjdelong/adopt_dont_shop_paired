@@ -12,9 +12,12 @@
 
   <% @applied_pets.each do |app_pet| %>
     <section id = "pet-<%= app_pet.id %>">
-      <h3><%= link_to "#{app_pet.name}", "/pets/#{app_pet.id}" %></h3>
-      <% if app_pet.adoption_status != "Adoption Pending..." %>
-        <p><%= button_to 'Approve', "/applications/#{@application.id}/pets/#{app_pet.id}", method: :patch %></p>
+      <% if app_pet.adoption_status == "Adoptable" %>
+        <h3><%= link_to "#{app_pet.name}", "/pets/#{app_pet.id}" %></h3>
+        <%= button_to 'Approve', "/applications/#{@application.id}/pets/#{app_pet.id}", method: :patch %>
+      <% else %>
+        <h3><%= link_to "#{app_pet.name}", "/pets/#{app_pet.id}" %></h3>
+        <%= button_to 'Revoke Application', "/applications/#{@application.id}/pets/#{app_pet.id}", method: :patch %>
       <% end %>
     </section>
   <% end %>
