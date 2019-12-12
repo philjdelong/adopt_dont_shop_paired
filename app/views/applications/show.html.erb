@@ -9,6 +9,9 @@
   <p><%= @application.description %></p>
   <br><br>
   <h2>Pets applied for:</h2>
-  <% @application.pets.each do |pet| %>
+  <% @applied_pets.each do |pet| %>
+  <section id = "pet-<%= pet.id %>">
     <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h3>
+    <p><%= button_to 'Approve', "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %></p>
+  </section>
   <% end %>

@@ -11,13 +11,4 @@ validates_presence_of :name,
                       :phone_number,
                       :description
 
-  def update_adoption_status(pets)
-    pets.each do |pet|
-      if pet.adoption_status != true
-        status = "Adoption Pending"
-      end
-      pet.update({adoption_status: status})
-      pet.save
-    end
-  end
 end

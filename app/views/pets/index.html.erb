@@ -18,11 +18,7 @@
       <h3>Description: </h3>
          <p><%= pet.description %></p>
       <h3>Adoption Status: </h3>
-        <p><% if pet.adoption_status = "adoptable" %>
-          Adoptable
-        <% else %>
-          Adoption pending...
-      <% end %></p>
+        <p><%= pet.adoption_status %>
       <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
       <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
     <br><br>

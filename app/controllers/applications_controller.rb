@@ -2,10 +2,11 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = Application.find(params[:id])
+    @applied_pets = @application.pets
   end
 
   def index
-    @pet = Pet.find(params[:id])
+    @pet = Pet.find(params[:pet_id])
   end
 
   def new
@@ -20,7 +21,6 @@ class ApplicationsController < ApplicationController
 
       faves = favorites.remove_type(ids)
       application.pets << applicants
-      application.update_adoption_status(applicants)
       flash[:success] = "Your application has been sent!"
       redirect_to "/favorites"
     else
@@ -28,6 +28,7 @@ class ApplicationsController < ApplicationController
       @pets = Pet.find(favorites.favorite_pets.keys)
       render :new
     end
+
   end
 
   private

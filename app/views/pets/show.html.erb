@@ -11,10 +11,14 @@
   <p><%= @pet.sex %></p>
 
 <h2>Adoption Status: </h2>
-  <p><% if @pet.adoption_status == "adoptable" %>
-    Adoptable
+  <p><% if @pet.adoption_status == "Adoptable" %>
+    <%= @pet.adoption_status %>
     <% else %>
-    Adoption pending...
+    Adoption Pending...
+    Pet is on hold for:
+      <% @pet.applications.each do |application| %>
+        <%= application.name %>
+      <% end %>
     <% end %>
   </p>
 
