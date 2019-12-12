@@ -73,6 +73,19 @@ RSpec.describe "As the user" do
       expect(current_path).to eq("/shelters/#{@shelter_1.id}/pets")
     end
 
+    it "all shelters names are links on the site" do
+      visit "/shelters"
+      expect(page).to have_link("#{@shelter_1.name}")
+      expect(page).to have_link("#{@shelter_2.name}")
+
+      visit "/shelters/#{@shelter_1.id}"
+      expect(page).to have_link("#{@shelter_1.name}")
+
+      visit "/shelters/#{@shelter_2.id}"
+      expect(page).to have_link("#{@shelter_2.name}")
+
+    end
+
     it "i can see all reviews for that shelter" do
       expect(page).to have_content("Reviews:")
 
