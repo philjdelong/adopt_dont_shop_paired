@@ -20,7 +20,9 @@
       <h3>Adoption Status: </h3>
         <p><%= pet.adoption_status %>
       <%= button_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
+      <% if pet.adoption_status == "Adoptable" %>
       <%= button_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
+      <% end %>
     <br><br>
   </body>
 <% end %>

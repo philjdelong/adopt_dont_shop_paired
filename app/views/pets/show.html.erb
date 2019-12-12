@@ -29,5 +29,7 @@
 <% end %>
 <br><br>
 <%= button_to "Edit Pet", "/pets/#{@pet.id}/edit" %>
+<% if @pet.adoption_status == "Adoptable" %>
 <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+<% end %>
 <%= link_to "View applications for this pet", "/pets/#{@pet.id}/applications" %>
