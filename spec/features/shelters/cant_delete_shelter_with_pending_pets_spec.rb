@@ -64,12 +64,5 @@ describe "As a visitor" do
       expect(page).to have_button('Delete Shelter')
 
     end
-
-    # it "Shelter can not be deleted from shelter index page" do
-    #   visit "/shelters"
-    #   expect(page).not_to have_button('Delete Shelter')
-    #   expect(page).to have_button('Delete Shelter')
-    #
-    # end
   end
 end

@@ -62,7 +62,7 @@ RSpec.describe "As a user" do
       expect(Pet.all.count).to eq(0)
     end
 
-    xit "i cannot delete a shelter with an approved pet" do
+    it "i cannot delete a shelter with an approved pet" do
 
       @application.pets << [@charles]
 
@@ -70,8 +70,8 @@ RSpec.describe "As a user" do
       click_on "Approve"
 
       visit "/shelters/#{@phils_shelter.id}"
-      click_on "Delete Shelter"
-      expect(page).to have_content("You cannot delete a shelter while pet(s) Adoption is Pending...")
+
+      expect(page).to_not have_button("Delete Shelter")
 
     end
   end
