@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
     end
     @applied_pets = Pet.select('pets.name, pets.id').joins(:applications)
   end
-
+dlkkl
   def update
     pet = Pet.find(params[:pet_id])
     favorites.add_pet(pet.id)

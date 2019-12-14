@@ -35,18 +35,19 @@ class SheltersController < ApplicationController
   end
 
   def destroy
-    Review.delete(Review.where(shelter_id: params[:id]))
-    # pet = Pet.find(params[:id])
-    #   if pet.adoption_status == "Adoption Pending..."
-    #     flash[:notice] = "Cannot delete pets with pending applications"
-    #   else
-    #     PetsApplication.delete(Pet.where(shelter_id: params[:id]))
-    #     pet.delete
-    #     Shelter.destroy(params[:id])
-    #   end
-    PetsApplication.delete(Pet.where(shelter_id: params[:id]))
-    Pet.delete(Pet.where(shelter_id: params[:id]))
-    Shelter.destroy(params[:id])
+    statuses = Pet.select('pets.adoption_status').where(shelter_id: params[:id])
+      if statuses.count > 0 
+        flash[:notice] = "Cannot delete pets with pending applications"
+      else
+        Pet.delete(Pet.where(shelter_id: params[:id]))
+        Review.delete(Review.where(shelter_id: params[:id]))
+        PetsApplication.delete(Pet.where(shelter_id: params[:id]))
+        Shelter.destroy(params[:id])
+      end
+    # Review.delete(Review.where(shelter_id: params[:id]))
+    # PetsApplication.delete(Pet.where(shelter_id: params[:id]))
+    # Pet.delete(Pet.where(shelter_id: params[:id]))
+    # Shelter.destroy(params[:id])
     redirect_to '/shelters'
   end
 

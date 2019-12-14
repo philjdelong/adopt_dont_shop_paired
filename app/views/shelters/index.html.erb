@@ -4,7 +4,7 @@
   <h2><%= link_to "#{shelter.name}", "shelters/#{shelter.id}" %></h2>
   <p>Available Pets:</p>
   <% shelter.pets.each do |pet| %>
-    <p><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></p>
+    <h3><%= link_to "#{pet.name}", "/pets/#{pet.id}" %>: <%= pet.adoption_status %></h3>
     <sub>(<%= pet.description %>)</sub>
   <% end %>
   <p>
